@@ -1,0 +1,98 @@
+
+
+All Updates, like in every lectures what we are adding.
+We follow youtube's playlist : https://www.youtube.com/watch?v=C1NgOmoOszc&list=PLjVLYmrlmjGcyt3m6rt21nfjhYSWP_Ue_&index=1
+
+
+
+===================================================================================================
+
+Update 0 :
+Video Lecture - 1 to 4. 
+1 - Introduction to Django and Framework. 
+2 - Before learning Django, what should come? 
+3 - What is MVT, Model View Template. 
+4 - Python, PIP and Django Installation. 
+
+
+
+===================================================================================================
+
+Update 1 :
+Video Lecture - 5 and 6. 
+5 - How to create new project on Django. 
+First we want to open CMD, and go on the exect location where we want to create project.
+Two ways to open location:
+(1) Direct go on location in folder, and write "CMD ....." on front of these location.
+(2) Go on search, write cmd and after select CMD entered. And after open you change your location where you want to create project:
+    |>> C:\windows\system32> d:
+    |>> D:\> cd .....
+    |>> D:\.....>
+
+Many processes under django, so to check it with the command:
+|.....> django-admin
+
+Here is many options, in which startproject is there,with it we create a project. 
+|.....> django-admin startproject myProject
+
+
+
+6 - How to Run Development Server in Django.
+Now to do anything on your project, first make sure that you are under your main project or not?!! Because project's main manage.py file who control everything its under this project, so first you visit under project.
+And also make sure that you not go under the same project name app. only go one step under. So to do it follow the steps:
+|.....> cd myProject
+Now we do run our project with the command:
+|.....> python manage.py runserver  (Here we get 127.0.0.1:8000, here 8000 is bydefault) 
+And then you just copy IP, and paste on chrome. And after that if nothing is show means we do something else, but if run perfectly means things are we do perfectly. And after that if you want to quit server's run, so you go on CMD and press "ctrl+c", then you server is stopped.
+Or we also change our IP's, because sometime we want to work in another project at same time. 
+|.....> python manage.py runserver 3108  (Here we get 127.0.0.1:3108, here 3108 is myway) 
+
+
+
+7 - SetUp the Visual Studio Code Editor. 
+
+
+
+===================================================================================================
+
+
+8 - Folder's Structure:
+Means where is our media's, static's, template's or html file's existing, these things we dicussed here...
+So always remember two ways to make projects, first way we see in Internship time, and second is there...
+And these folders we make under the projects section, not under the app. So here we make these three folders! 
+media - Dynamic Files, means files which we use dynamically, like product images or data files and etcs. 
+static - Media files statically, like javascript jquery images css fonts etc's. 
+templates - All HTML files. 
+And must is to make views.py file under the apps, not in project. 
+
+And Under the same project's name app, there is a file settings.py, this file manage our database and some more things. Actually all the settings related things we manage here, because manage.py file also considering there's settings. 
+
+
+===================================================================================================
+
+
+9 - How to Migrate Default Migeations
+Actually some table's schema django have bydefault, so when we do apply makemigrations and then migrate it, so there is some schema applying automatically. And it gives us the admin pannel bydefault, like you go on browser and run with "127.0.0.1:8000/admin" so your admin pannel is open automatically. But it wants username and password, because we generate it by terminal, and this work we do after do migrate things, because without its we never get schema. 
+Actually before do apply these commands there is manage.py's space is 0'kb and after do this size is incresses, because then schema is coming there...
+So first command is:
+|.....> python manage.py makemigrations
+Generally we use it, whenever we create new model, so we convert it into migrations first and then we apply second command, is:
+|.....> python manage.py migrate
+So you see that there is manage.py play role as manager, who manageing all the tasks. 
+
+Here we also apply other databse like MongoDB or SQL or others, but Django use sqlite database, as bydefault. But its only for simple CRUD things, be in future in big projects we never work with these...
+And when you want to use other database so you change the setting on setting.py file under the same name app, so there is a dictionary of DATABASES, these we do changes in future, not now.
+
+So here we know how to do apply migrations, because without it we never able to create superuser, and if not create superuser then never open admin section, so thats the reason why we do migrations. 
+
+
+
+
+10 - Install DB Browser
+Actually whatever data we inserted in our SQLite database, we can't able to view this data, because it's a binary data. So we install DB browser, so that we viewing these data as rows and columns format.
+
+
+
+===================================================================================================
+
+
