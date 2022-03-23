@@ -1,0 +1,235 @@
+
+
+All Updates, like in every lectures what we are adding.
+We follow youtube's playlist : https://www.youtube.com/watch?v=C1NgOmoOszc&list=PLjVLYmrlmjGcyt3m6rt21nfjhYSWP_Ue_&index=1
+
+
+
+===================================================================================================
+
+Update 0 :
+Video Lecture - 1 to 4. 
+1 - Introduction to Django and Framework. 
+2 - Before learning Django, what should come? 
+3 - What is MVT, Model View Template. 
+4 - Python, PIP and Django Installation. 
+
+
+
+===================================================================================================
+
+Update 1 :
+Video Lecture - 5 and 6. 
+5 - How to create new project on Django. 
+First we want to open CMD, and go on the exect location where we want to create project.
+Two ways to open location:
+(1) Direct go on location in folder, and write "CMD ....." on front of these location.
+(2) Go on search, write cmd and after select CMD entered. And after open you change your location where you want to create project:
+    |>> C:\windows\system32> d:
+    |>> D:\> cd .....
+    |>> D:\.....>
+
+Many processes under django, so to check it with the command:
+|.....> django-admin
+
+Here is many options, in which startproject is there,with it we create a project. 
+|.....> django-admin startproject myProject
+
+
+
+6 - How to Run Development Server in Django.
+Now to do anything on your project, first make sure that you are under your main project or not?!! Because project's main manage.py file who control everything its under this project, so first you visit under project.
+And also make sure that you not go under the same project name app. only go one step under. So to do it follow the steps:
+|.....> cd myProject
+Now we do run our project with the command:
+|.....> python manage.py runserver  (Here we get 127.0.0.1:8000, here 8000 is bydefault) 
+And then you just copy IP, and paste on chrome. And after that if nothing is show means we do something else, but if run perfectly means things are we do perfectly. And after that if you want to quit server's run, so you go on CMD and press "ctrl+c", then you server is stopped.
+Or we also change our IP's, because sometime we want to work in another project at same time. 
+|.....> python manage.py runserver 3108  (Here we get 127.0.0.1:3108, here 3108 is myway) 
+
+
+
+7 - SetUp the Visual Studio Code Editor. 
+
+
+
+===================================================================================================
+
+
+8 - Folder's Structure:
+Means where is our media's, static's, template's or html file's existing, these things we dicussed here...
+So always remember two ways to make projects, first way we see in Internship time, and second is there...
+And these folders we make under the projects section, not under the app. So here we make these three folders! 
+media - Dynamic Files, means files which we use dynamically, like product images or data files and etcs. 
+static - Media files statically, like javascript jquery images css fonts etc's. 
+templates - All HTML files. 
+And must is to make views.py file under the apps, not in project. 
+
+And Under the same project's name app, there is a file settings.py, this file manage our database and some more things. Actually all the settings related things we manage here, because manage.py file also considering there's settings. 
+
+
+===================================================================================================
+
+
+9 - How to Migrate Default Migeations
+Actually some table's schema django have bydefault, so when we do apply makemigrations and then migrate it, so there is some schema applying automatically. And it gives us the admin pannel bydefault, like you go on browser and run with "127.0.0.1:8000/admin" so your admin pannel is open automatically. But it wants username and password, because we generate it by terminal, and this work we do after do migrate things, because without its we never get schema. 
+Actually before do apply these commands there is manage.py's space is 0'kb and after do this size is incresses, because then schema is coming there...
+So first command is:
+|.....> python manage.py makemigrations
+Generally we use it, whenever we create new model, so we convert it into migrations first, but if you create first time, then we apply second command, is:
+|.....> python manage.py migrate
+So you see that there is manage.py play role as manager, who manageing all the tasks. 
+
+Here we also apply other databse like MongoDB or SQL or others, but Django use sqlite database, as bydefault. But its only for simple CRUD things, be in future in big projects we never work with these...
+And when you want to use other database so you change the setting on setting.py file under the same name app, so there is a dictionary of DATABASES, these we do changes in future, not now.
+
+So here we know how to do apply migrations, because without it we never able to create superuser, and if not create superuser then never open admin section, so thats the reason why we do migrations. 
+
+
+
+
+10 - Install DB Browser
+Actually whatever data we inserted in our SQLite database, we can't able to view this data, because it's a binary data. So we install DB browser, so that we viewing these data as rows and columns format.
+
+
+
+===================================================================================================
+
+
+
+
+11 - How to create SuperUser in Django 
+
+Command to create superuser is :
+|.....> python manage.py createsuperuser
+After that there ask some information like name email username password and some others things. And then your superuser is created. And then you are free to login on admin pannel. 
+But before we open admin pannel, first we open DBBrowser and check there, where our this user's entry registered. So open it and select database file, and then you see on Tables's auth_user and click its right and browse table option and there is show all user's login details. Here all details shown but it incript all passwords. 
+
+So this is the way that how to we create superuser, and view as admin, because in future when we create many models in future, so there we add products and otherthings in admin sides, so that all the things shown as user side. Actually two types sides of every websites, first is what user are heppens, and what is a front of user. So admin sides things we dicussed after some lectures, because in some more lectures we discussed the things about, what user show...
+
+
+
+===================================================================================================
+
+
+
+12 - What are URL's & Views in Django. 
+
+URL's or Routes:
+We also say URL's as Route. Like our domain name is shivashu.com so this is domain, but routing play role as suppose we click this website's aboutus page, so what will heppens in url, so it is "www.shivashu.com/aboutus", so this routing or slug will create in url.
+Show starting page : https://www.shivashu.com/
+Show list of all posts : https://www.shivashu.com/blog/
+Show specify posts : https://www.shivashu.com/blog/singleposts
+We see in future like if we want to pass parameter, pass id, or do how to we make urls dynamically, so how to we do that?! see in future. 
+
+Views:
+The logic is executed for different URL's(https method)
+(1) Functions
+(2) Class
+Prapare and return response data(eg. HTML)
+Every view is connected with your url, which url's you call, same name view's function or class will calling always, and for every request our view return the things as response. And that's how these both links are connected with each others. 
+
+Now suppose you want to change superuser's url...
+by default --> localhost:8000/admin/
+localhost:8000/admin/login/?next=/admin/ (hitting and converting bydefault)
+http://127.0.0.1:8000/admin/login/?next=/admin/  [http://127.0.0.1:8000/admin/]
+
+So if you want to change, so you go on project's personal app and open url.py and there you change the url patterns bydefault url and set path "admin/" to "admin-panel/", Now if you go and again refresh this previous page, so there is show error, as not found error. Reason is because you're changed its route or root. 
+Now URL is --> localhost:8000/admin-panel/
+localhost:8000/admin-panel/login/?next=/admin-panel/ (hitting and converting bydefault)
+http://127.0.0.1:8000/admin-panel/login/?next=/admin-panel/  [http://127.0.0.1:8000/admin-panel/] 
+
+
+===================================================================================================
+
+ 
+13 - How to create your own URL's and Views in Django. 
+
+First you make sure that in same project's name app you create views.py file. And written a code there:
+from django.http import HttpResponse 
+def aboutus(request):
+        return HttpResponse("<b>Welcome to shivashu.com</b>")
+def course(request):
+        return HttpResponse("Welcome to Python")
+This HttpResponse return a response as string formate only. To return any html page we use other things which we discuss later. 
+And there is we want to pass "request" as parameter, now there is its no use, but when we pass any parameter in future, so all the passing data coming on this parameter, and you also change its name, but you prafer its because this is a bydefault name.
+
+Now we want that if we write "localhost:8000/aboutus/" so this function's data show there. So first we go on urls.py file and make url for aboutus as link, so its creation code is:
+
+........................
+from myProject import views
+urlpatterns = [
+        ..........................
+        path('about-us/',views.aboutus),
+        path('course/',views.course),
+]
+
+So here first we import views.py file there, and in urlpattern under path first we set url, and then write that if this url will call then views.py's which function will called. 
+And we also use html tag's there with your string data, like you write data under bold tag, so that your HttpResponse is going as bold string. 
+
+
+===================================================================================================
+
+
+
+14 - How to Create a Dynamic URL in Django. 
+
+Actually dynamic routes means you see some websites like any website where we visit, so website is www.shivashu.com. Then you want to open all people's blog section so after open blog section you see that route or url is now www.shivashu.com/blogs. Now because many blog are there, so you open any one like: "ashu-blog" so immidiate your url is now "www.shivashu.com/blogs/ashu-blog", so means is if there is 1000 of blogs, and you want to open any other blog, like "yash-blog" so for every blogs url is different but like "www.shivashu.com/blogs/ashu-blog/yash-blog", its original url is "www.shivashu.com/blogs/ashu-blog/yash-blog" now.
+So thats the thing what we trying to say that, for blogs section, we have the dynamic url, who help us to see all blogs one by one so there "www.shivashu.com/blogs/......." is always same or fix for all 1000 blogs, and only last name is change always, according to you open blog. So thats the over means or work of dynamic url's. 
+By the way i share you the same thing which we learn in internship time, there we manage same thing using to create many different-different apps. Like for managing all blogs we make one blog app, and all the things we manage there.
+
+So lets now we implement it prectically, Suppose in our project we have three courses, like java python django. So on which course we click, its page is open, and all the urls changes automatically, and all its we managing using dynamic routes. so lets see these...
+
+But before starting i describe that, routs are always create on the bases of int, str or slugs. Here int means all numbers, string means every string, and slug means the data which is saperated by dash(-) sign, like "shivam-kumar-shukla". But if you selected int then if you pass string in url, then error is coming there, and
+
+urls.py
+.......................
+urlpatterns = [
+    ..................
+    # path('course/<int:courseid>',views.courseDetails),
+    # path('course/<str:courseid>',views.courseDetails),
+    # path('course/<slug:courseid>',views.courseDetails),
+    path('course/<courseid>',views.courseDetails),
+]
+
+views.py
+.................
+def courseDetails(request,courseid):
+    return HttpResponse(courseid)
+
+Chrome:
+Note: So if we are select as int:
+localhost:8000/course/1 --> printing 1. 
+localhost:8000/course/9 --> printing 9. 
+localhost:8000/course/s --> Error. 
+Note: So if we are select as str and slugs:
+localhost:8000/course/s --> printing s. 
+localhost:8000/course/vashu --> printing vashu. 
+localhost:8000/course/1 --> printing 1. 
+localhost:8000/course/abc-def --> printing abc-def. 
+
+So actually these things we using in future, because you see that, there "localhost:8000/course/" is a prefix, and its always same but after that whatever we want to pass, it show directly. But in future when we works dynamically with using templates, so there we want these, now here you just see that how to things are works there.
+And yes if you write format-int, so only in this case string and slugs are not allowed, but in format-str or format-slug all things are accepting. 
+Actually you use this as conditions also, but suppose you don't know that which type of value is coming, so you also not written any type there. 
+
+So thats the overall things there, that how to you manage all the things by dynamic url change patterns. So with this logic we shown multiple posts, products, blogs, items and more things there. 
+
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
