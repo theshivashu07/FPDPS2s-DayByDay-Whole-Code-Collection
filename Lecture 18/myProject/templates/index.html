@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{title}}</title>
+	<style type="text/css">
+		.main{
+			width: 1000px;
+			background-color: red;
+			color: white;
+			padding: 50px;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<b>{{message}} #GreatOne</b>
+		<br>
+		<br>
+		<br>
+		<b>Simple Iteration</b>
+		{% for n in mylist %}
+		<div>>> {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.counter</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.counter}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.counter0</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.counter0}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.revcounter</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.revcounter}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.revcounter0</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.revcounter0}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.first</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.first}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.last</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.last}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<br>
+		<br>
+		<br>
+		<table border="1" cellpadding="10">
+			<tr>
+				<th>Name</th>
+				<th>PhoneNo.</th>
+			</tr>
+			{% for d in student_details %}
+			<tr>
+				<th>{{d.name}}</th>
+				<th>{{d.phone}}</th>
+			</tr>
+			{% endfor %}
+		</table>
+		<br>
+		<br>
+		<br>
+		<br>
+		<b>Apply for and if statements</b>
+		{% for n in mydata %}
+			{% if n > 20 %}
+				<div>>> {{n}}</div>
+			{% endif %}
+		{% endfor %}
+		<br>
+		<br>
+		<br>
+		<br>
+		<b>Apply for and if-else statements</b>
+		{% if mydatacopy|length > 0 %}
+			{% for n in mydatacopy %}
+				{% if n > 20 %}
+					<div>>> {{n}}</div>
+				{% endif %}
+			{% endfor %}
+		{% else %}
+			<div>No Data Found.</div>
+		{% endif %}
+		<br>
+	</div>
+</body>
+</html>
+
+
+
+
+
