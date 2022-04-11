@@ -1,0 +1,1880 @@
+
+
+All Updates, like in every lectures what we are adding.
+We follow youtube's playlist : https://www.youtube.com/watch?v=C1NgOmoOszc&list=PLjVLYmrlmjGcyt3m6rt21nfjhYSWP_Ue_&index=1
+
+
+
+===================================================================================================
+
+Update 0 :
+Video Lecture - 1 to 4. 
+1 - Introduction to Django and Framework. 
+2 - Before learning Django, what should come? 
+3 - What is MVT, Model View Template. 
+4 - Python, PIP and Django Installation. 
+
+
+
+===================================================================================================
+
+Update 1 :
+Video Lecture - 5 and 6. 
+5 - How to create new project on Django. 
+First we want to open CMD, and go on the exect location where we want to create project.
+Two ways to open location:
+(1) Direct go on location in folder, and write "CMD ....." on front of these location.
+(2) Go on search, write cmd and after select CMD entered. And after open you change your location where you want to create project:
+    |>> C:\windows\system32> d:
+    |>> D:\> cd .....
+    |>> D:\.....>
+
+Many processes under django, so to check it with the command:
+|.....> django-admin
+
+Here is many options, in which startproject is there,with it we create a project. 
+|.....> django-admin startproject myProject
+
+
+
+6 - How to Run Development Server in Django.
+Now to do anything on your project, first make sure that you are under your main project or not?!! Because project's main manage.py file who control everything its under this project, so first you visit under project.
+And also make sure that you not go under the same project name app. only go one step under. So to do it follow the steps:
+|.....> cd myProject
+Now we do run our project with the command:
+|.....> python manage.py runserver  (Here we get 127.0.0.1:8000, here 8000 is bydefault) 
+And then you just copy IP, and paste on chrome. And after that if nothing is show means we do something else, but if run perfectly means things are we do perfectly. And after that if you want to quit server's run, so you go on CMD and press "ctrl+c", then you server is stopped.
+Or we also change our IP's, because sometime we want to work in another project at same time. 
+|.....> python manage.py runserver 3108  (Here we get 127.0.0.1:3108, here 3108 is myway) 
+
+
+
+7 - SetUp the Visual Studio Code Editor. 
+
+
+
+===================================================================================================
+
+
+8 - Folder's Structure:
+Means where is our media's, static's, template's or html file's existing, these things we dicussed here...
+So always remember two ways to make projects, first way we see in Internship time, and second is there...
+And these folders we make under the projects section, not under the app. So here we make these three folders! 
+media - Dynamic Files, means files which we use dynamically, like product images or data files and etcs. 
+static - Media files statically, like javascript jquery images css fonts etc's. 
+templates - All HTML files. 
+And must is to make views.py file under the apps, not in project. 
+
+And Under the same project's name app, there is a file settings.py, this file manage our database and some more things. Actually all the settings related things we manage here, because manage.py file also considering there's settings. 
+
+
+===================================================================================================
+
+
+9 - How to Migrate Default Migeations
+Actually some table's schema django have bydefault, so when we do apply makemigrations and then migrate it, so there is some schema applying automatically. And it gives us the admin pannel bydefault, like you go on browser and run with "127.0.0.1:8000/admin" so your admin pannel is open automatically. But it wants username and password, because we generate it by terminal, and this work we do after do migrate things, because without its we never get schema. 
+Actually before do apply these commands there is manage.py's space is 0'kb and after do this size is incresses, because then schema is coming there...
+So first command is:
+|.....> python manage.py makemigrations
+Generally we use it, whenever we create new model, so we convert it into migrations first, but if you create first time, then we apply second command, is:
+|.....> python manage.py migrate
+So you see that there is manage.py play role as manager, who manageing all the tasks. 
+
+Here we also apply other databse like MongoDB or SQL or others, but Django use sqlite database, as bydefault. But its only for simple CRUD things, be in future in big projects we never work with these...
+And when you want to use other database so you change the setting on setting.py file under the same name app, so there is a dictionary of DATABASES, these we do changes in future, not now.
+
+So here we know how to do apply migrations, because without it we never able to create superuser, and if not create superuser then never open admin section, so thats the reason why we do migrations. 
+
+
+
+
+10 - Install DB Browser
+Actually whatever data we inserted in our SQLite database, we can't able to view this data, because it's a binary data. So we install DB browser, so that we viewing these data as rows and columns format.
+
+
+
+===================================================================================================
+
+
+
+
+11 - How to create SuperUser in Django 
+
+Command to create superuser is :
+|.....> python manage.py createsuperuser
+After that there ask some information like name email username password and some others things. And then your superuser is created. And then you are free to login on admin pannel. 
+But before we open admin pannel, first we open DBBrowser and check there, where our this user's entry registered. So open it and select database file, and then you see on Tables's auth_user and click its right and browse table option and there is show all user's login details. Here all details shown but it incript all passwords. 
+
+So this is the way that how to we create superuser, and view as admin, because in future when we create many models in future, so there we add products and otherthings in admin sides, so that all the things shown as user side. Actually two types sides of every websites, first is what user are heppens, and what is a front of user. So admin sides things we dicussed after some lectures, because in some more lectures we discussed the things about, what user show...
+
+
+
+===================================================================================================
+
+
+
+12 - What are URL's & Views in Django. 
+
+URL's or Routes:
+We also say URL's as Route. Like our domain name is shivashu.com so this is domain, but routing play role as suppose we click this website's aboutus page, so what will heppens in url, so it is "www.shivashu.com/aboutus", so this routing or slug will create in url.
+Show starting page : https://www.shivashu.com/
+Show list of all posts : https://www.shivashu.com/blog/
+Show specify posts : https://www.shivashu.com/blog/singleposts
+We see in future like if we want to pass parameter, pass id, or do how to we make urls dynamically, so how to we do that?! see in future. 
+
+Views:
+The logic is executed for different URL's(https method)
+(1) Functions
+(2) Class
+Prapare and return response data(eg. HTML)
+Every view is connected with your url, which url's you call, same name view's function or class will calling always, and for every request our view return the things as response. And that's how these both links are connected with each others. 
+
+Now suppose you want to change superuser's url...
+by default --> localhost:8000/admin/
+localhost:8000/admin/login/?next=/admin/ (hitting and converting bydefault)
+http://127.0.0.1:8000/admin/login/?next=/admin/  [http://127.0.0.1:8000/admin/]
+
+So if you want to change, so you go on project's personal app and open url.py and there you change the url patterns bydefault url and set path "admin/" to "admin-panel/", Now if you go and again refresh this previous page, so there is show error, as not found error. Reason is because you're changed its route or root. 
+Now URL is --> localhost:8000/admin-panel/
+localhost:8000/admin-panel/login/?next=/admin-panel/ (hitting and converting bydefault)
+http://127.0.0.1:8000/admin-panel/login/?next=/admin-panel/  [http://127.0.0.1:8000/admin-panel/] 
+
+
+===================================================================================================
+
+ 
+13 - How to create your own URL's and Views in Django. 
+
+First you make sure that in same project's name app you create views.py file. And written a code there:
+from django.http import HttpResponse 
+def aboutus(request):
+        return HttpResponse("<b>Welcome to shivashu.com</b>")
+def course(request):
+        return HttpResponse("Welcome to Python")
+This HttpResponse return a response as string formate only. To return any html page we use other things which we discuss later. 
+And there is we want to pass "request" as parameter, now there is its no use, but when we pass any parameter in future, so all the passing data coming on this parameter, and you also change its name, but you prafer its because this is a bydefault name.
+
+Now we want that if we write "localhost:8000/aboutus/" so this function's data show there. So first we go on urls.py file and make url for aboutus as link, so its creation code is:
+
+........................
+from myProject import views
+urlpatterns = [
+        ..........................
+        path('about-us/',views.aboutus),
+        path('course/',views.course),
+]
+
+So here first we import views.py file there, and in urlpattern under path first we set url, and then write that if this url will call then views.py's which function will called. 
+And we also use html tag's there with your string data, like you write data under bold tag, so that your HttpResponse is going as bold string. 
+
+
+===================================================================================================
+
+
+
+14 - How to Create a Dynamic URL in Django. 
+
+Actually dynamic routes means you see some websites like any website where we visit, so website is www.shivashu.com. Then you want to open all people's blog section so after open blog section you see that route or url is now www.shivashu.com/blogs. Now because many blog are there, so you open any one like: "ashu-blog" so immidiate your url is now "www.shivashu.com/blogs/ashu-blog", so means is if there is 1000 of blogs, and you want to open any other blog, like "yash-blog" so for every blogs url is different but like "www.shivashu.com/blogs/ashu-blog/yash-blog", its original url is "www.shivashu.com/blogs/ashu-blog/yash-blog" now.
+So thats the thing what we trying to say that, for blogs section, we have the dynamic url, who help us to see all blogs one by one so there "www.shivashu.com/blogs/......." is always same or fix for all 1000 blogs, and only last name is change always, according to you open blog. So thats the over means or work of dynamic url's. 
+By the way i share you the same thing which we learn in internship time, there we manage same thing using to create many different-different apps. Like for managing all blogs we make one blog app, and all the things we manage there.
+
+So lets now we implement it prectically, Suppose in our project we have three courses, like java python django. So on which course we click, its page is open, and all the urls changes automatically, and all its we managing using dynamic routes. so lets see these...
+
+But before starting i describe that, routs are always create on the bases of int, str or slugs. Here int means all numbers, string means every string, and slug means the data which is saperated by dash(-) sign, like "shivam-kumar-shukla". But if you selected int then if you pass string in url, then error is coming there, and
+
+urls.py
+.......................
+urlpatterns = [
+    ..................
+    # path('course/<int:courseid>',views.courseDetails),
+    # path('course/<str:courseid>',views.courseDetails),
+    # path('course/<slug:courseid>',views.courseDetails),
+    path('course/<courseid>',views.courseDetails),
+]
+
+views.py
+.................
+def courseDetails(request,courseid):
+    return HttpResponse(courseid)
+
+Chrome:
+Note: So if we are select as int:
+localhost:8000/course/1 --> printing 1. 
+localhost:8000/course/9 --> printing 9. 
+localhost:8000/course/s --> Error. 
+Note: So if we are select as str and slugs:
+localhost:8000/course/s --> printing s. 
+localhost:8000/course/vashu --> printing vashu. 
+localhost:8000/course/1 --> printing 1. 
+localhost:8000/course/abc-def --> printing abc-def. 
+
+So actually these things we using in future, because you see that, there "localhost:8000/course/" is a prefix, and its always same but after that whatever we want to pass, it show directly. But in future when we works dynamically with using templates, so there we want these, now here you just see that how to things are works there.
+And yes if you write format-int, so only in this case string and slugs are not allowed, but in format-str or format-slug all things are accepting. 
+Actually you use this as conditions also, but suppose you don't know that which type of value is coming, so you also not written any type there. 
+
+So thats the overall things there, that how to you manage all the things by dynamic url change patterns. So with this logic we shown multiple posts, products, blogs, items and more things there. 
+
+
+
+===================================================================================================
+
+
+
+15 - Render an HTML Template as Response
+
+Now we see in precctical that how we render html template as response...
+So to do it we import one library from django.shorcut import rander. Till now we only return text as response, but now we are ready to learn that how we render templates on any views. 
+
+So first make sure that there is exist templates folder under the project. So you make one file there like index.html file. And do simple code there:
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+</head>
+<body>
+    <b> Welcome to shivashu.com!</b>
+</body>
+</html>
+Actually this code is only to get the idea that how to we render any webpage or html page. 
+
+So second step is you go same projects name app, and open settings.py file, and on its templates section we want to tell this setting.py file that where is our location of all html files collection. So on template's 'DIRS' section we set path on list to connect. like:
+'DIRS' : [BASE_DIR,"templates"],
+Here we write 'BASE_DIR', which means its gives us the path till the folders location, and after that we write our folder name, because template folder is in front. Maybe you know internship time, where we make many apps so there is we write many more things saperated by slash(/) sign. But here things are simple.
+
+So now our third task is we open views.py file, and create function for homepage, and now there we not return any HttpResponse, here we render template.
+views.py
+....................................
+from django.shortcut import render
+def homepage(request):
+    return render(request,"index.html")
+....................................
+
+Here under render, two parameter passing is mandetory, first is 'request' and second is that html file which we render as response. 
+Now the third task is must to make url for this, so open urls.py file and make url there. 
+urls.py
+...............................
+urlpatterns = [
+    path('',views.homepage),
+    ...............
+]
+
+So actually here we are not pass any name as url, because we want this page as bydefault page, means whenever you open as "www.shivashu.com", so your this page is open bydefault, so this blank path is hitting on bydefault. This blank path is like a site url now.
+So now you go on browser and refresh, you see that your html file is rendered succesfully as response. 
+
+
+Now we are see that if we want to implement css then how the things are heppens, so to just only show we implement some code more in our code file, and then save it, and again refresh the main page, and you see that these css part, which is available under style tag, its reflecting its show. 
+
+So basically render and HttpResponse are return response, but both have different expresive powers, render return html files and HttpResponse return only text strings. 
+
+
+
+===================================================================================================
+
+
+
+16 - Passing Data From a Django View to a Template
+
+Now we see that, which last html page we make, so on it how to we pass data on it thrue view.py file. Means we will see the connectivity that how to html files take all data from django's database. 
+
+So suppose the situation is, your html file's title is "Home Page", and you print the data in html file is: "Welcome to shivashu.com!". So we want to take both data by views.py file's function. So to do these things we use dictionary, and there we store the data as key-values paires. And we also change things in index.html file. Actually nothing we do a big change there, we just in the string's places, we simply written its holding keys only. And to know more information you  simply see this file.
+views.py
+................
+def homepage(request):
+    data={
+        'title' : 'Home Page',
+        'message' : 'Welcome to shivashu.com!',
+        'mylist' : ['shivam','vashu','shivashu','shrivashu'],
+    }
+    return render(request,'index.html',data);
+...............
+And always remember that we only pass this data variable, but we not uses thi data name, we access this dictionary's data with the help of its keys only. And if you want to print any key's data so we use dual curly breackets. like:{{title}}.
+
+So now there we only see that how to we passing data from a django view to a template, but in a next lecture we show how to we use for loops, because if in this situation we trying to print as {{mylist}}, so it print all data same as it is, as list. But we don't want it to print alls like that, and thats why we use loops. but in next lectures.
+
+
+
+===================================================================================================
+
+
+
+17 - How to use the Django Template For Loop
+
+Now we will learn that how to we print django's views.py file's data into a html page one by one using loops or iterations. so first we set some data on our views.py file. 
+views.py
+def homepage(request):
+    data={
+        'title' : 'Home Page',
+        'message' : 'Welcome to shivashu.com!',
+        'mylist' : ['shivam','vashu','shivashu','shrivashu'],
+        'student_details' : [
+            {'name':'shivam','phone':7898000000},
+            {'name':'shivam','phone':7898111111},
+        ]
+    }
+    return render(request,'index.html',data);
+
+and now we implementing for loop under body section, to see exect code you prefer index.html file directly, because here we see overview only...
+index.html
+...............
+<body>
+    {% for n in mylist %}
+    <div>{{n}}</div>
+    {% endfor %}
+</body>
+..............
+
+Django Template For Loop:
+Variable                         Description
+forloop.counter             The current iteration of the loop(1-indexed). 
+forloop.counter0           The current iteration of the loop(0-indexed). 
+forloop.revcounter        The number of iteration from the end of the loop(1-indexed). 
+forloop.revcounter0      The number of iteration from the end of the loop(0-indexed). 
+forloop.first                   True if this is the first time through the loop. 
+forloop.last                    True if this is the last time through the loop. 
+
+So after that we are printing our dictionaries data, actually we printing data as table format. But printing the dictionary data is different from other printings, like list tuple sets or normal variables. So thats all about the how to we implement loops.
+
+
+
+===================================================================================================
+
+
+
+18 - If Else Statement in Django Template
+
+So to see this implementation in precticals, we make one more list data in views's function. And then we make login in index.html file, you just go this file and see this implementations, that how things are happens. 
+So actually first we implement the logic where we check that all 20's greater values printing there, and in second if-else statement we make condition that if list not have any data then show a massage, otherwise all greater then 20 data printing there.
+
+index.html(using if)
+...................
+<body>
+    ...................
+    {% for n in mylist %}
+        {% if n > 20 %}
+            <div>{{n}}</div>
+        {% endif %}
+    {% endfor %}
+</body>
+...................
+
+index.html(using if-else)
+...................
+<body>
+    {% if mydatacopy|length > 0 %}
+        {% for n in mydatacopy %}
+            {% if n > 20 %}
+                <div>>> {{n}}</div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <div>No Data Found.</div>
+    {% endif %}
+</body>
+...................
+
+So now we know everything about how to we send data from views section to html file, and how to iterate list, tuple, sets and also dictionary data. And we also apply if and if-else using loops. 
+
+
+
+===================================================================================================
+
+
+
+19 - How to use CSS, JavaScript & Images in Django? 
+
+Actully some things you shifting back before starting this lecture, like in views section we do code beacuse of passing many values, so you just clear all the extra code, and make it again as simple and clean, same as lecture-15. 
+views.py
+def homepage(request):
+    return render(request,"index.html")
+............................
+
+
+So here now first step is that you go on browser and download any precreated template. And after download, cut all html files from there and paste there on out project's template folder, and also cut all the static related files, like javascript jquery css images and alls, and then paste these on project's static folder. Now when you run it your index.html file is callable, but its images javascript jquary and css part is not doned its work perfectly, and its reason is because its not connected perfectly. 
+Actually all files are on static folder, and in our html file's location is different, so first your task that you go on settings.py file and there you instruct about your location, and then we have a permission to do the tasks, so we are set directry's path in setting.py first. So do a extra code in the file's last...
+STATICFILES_DIRS = [
+    BASE_DIR,"static"
+] 
+So now all permissions are gurented now. And if you want to access any file by chrome, like : localhost:8000/static/css/clickers.css, so there is your file open perfectly. 
+And because where's we copy that code, there our css javascript jquary files are available in front, so that we go in every html file and search every file's folders, and in every file's implementations place you add "static/" in prefix on its. So all the javascript jquary images css files are implemented in a code, so thats the things happen there.
+
+But always remember thats the only first way to implement that, but there is a second way also and it is where not must to add "/static/" in prefix, here you just add {% load static %} in starting in your html file, and in every javascript jquary images css files implementation's places you write like: 
+<................... hrep="{% static 'img/fav.png' %}" > 
+And you implement this same code idea in each file's places, so in this way also we do implement static files, but first way is easy then second's way. So we follow first way in future but its for only rememberance that there is also second way to do implement the same logic. But in my index-2.0.html file runs perfactly, but size related issues coming there, but this code works perfect there.
+
+And in the next lecture we implement the code that how to we generate routing or url linkings. But till now we see that, how to we download any template and implementing in our project, so all tvhe things you do by yourself, with follow same as this video. 
+
+
+
+
+Here we again make html file, because of which html code we insert first this is a only one single page, so must to we download another code, where multiple files available. so now commit as "Lecture 19 2.0". 
+
+
+===================================================================================================
+
+
+
+20 - Common Header & Footer in Django HTML Template (Fix Header & Footer)
+
+Actually we know that in our file our header & footer always same, so the idea is we make a two extra file and there common code we write who repeting in every line, so we saperating hedder and footer's code saperatly, and other files are join this code as chiled. So you just follow steps. Here we use "include" keyword who help us to join templates ones to others, so using this you add both files section to other file's code. And incude helps us to implement components or chiled's page code. 
+
+So first you make a separate files, like we cut header in other saperate file, and footer in other saperate file. And then you include both file's in the top and bottom in other files where same code exist, so first you cut same code. just like this way:
+index.html
+{% include "HEADER.html" %}   // after cut same header code
+// In this section our index file's real code exist. 
+{% include "FOOTER.html" %}   // after cut same footer code
+
+Now our code is again works perfectly, so here we use "include" keyword to do that. But in the next lecture we will talk about that way, like same we learn in internship time. Means how we do header and footer in the same html file, and then do use "extend" keyword, With the help of this we change midlle data content. 
+
+
+
+===================================================================================================
+
+
+21 - How to use the Extends and Include Django Template Tags 
+
+We already know that "include" keyword helps us to include any other files code. But "extend" keywords use is totally different from "include" keyword. Actually with this helps, we replacing middle section's code from a file, like we do in SEPARATE.html. So there middle sections data extend always, according to the situation's or other html file's middle block codes. So with the logic of extend, you dont want to call header and footer's file in each and every time, these file are going on SEPARATE.html file, and include there. So how to we implement that lets see this: 
+
+So things are simple here, that "include" provide us the feature that you include the any file's code on any another file. But "extend" provide a feature that you create header and footer saperately and extend the middle section's data according to situation. So that our code is less now and much more systomatic. 
+
+SEPARATE-1.html
+{% include "HEADER.html" %}
+{% block blockname %}
+{% endblock %}
+{% include "FOOTER.html" %}
+
+index.html and others
+{% extends 'SEPARATE-1.html' %}
+{% block blockname %}
+// In this section our index file's real code exist. 
+{% endblock %}
+
+Now i'm starting to explain in the first. In the 'SEPARATE-1.html' file, we include the HEADER and FOOTER files, which means there exist your header and footers, but in its middle section we make a place for block with name, so that when we extend it in future in other html files, so on that file with extending we also gives its middle section code also.
+And as we do there in the other files, so things are same, but always remember the name of bases, because here is must that we use unique name for base, because many times we use multiple bases, so that you always remember.  
+And yess these 'include' and 'extends' are a django's tags. Actually here we use two type of ways we use, and its no change in actual code, first is we use include keyword to connect HEADER and FOOTER files, and in second we direct written code. So actually these thigs are same, no worry about that, i'm just to show that we also do thing in this way. So we make SEPARATE.html files separately here, and to check our second html file, you want to change extends file name in every file's top. 
+
+
+
+Let's we do that with the help of SEPARATE-2.html file, because there is we not including HEADER and FOOTER file's data, because we direct write there whole code, so nothing a big change is this, but just to know that this way also we have, so we again rewrite and commit as "Lecture 21 2.0".
+And don't think that you handle this file name dynamically, with value pass, because with all ways code is not working currectly, i don't know why maybe i don't know about this technique, but no dynamically done that is not possible:
+{% extends '{{passdata}}' %}  |  data={'passdata' : "SEPARATE-1.html"}    : Wrong 
+{% extends {{passdata}} %}  |  data={'passdata' : "'SEPARATE-1.html'"}    : Wrong 
+{{passdata}}  |  data={'passdata' : "{% extends 'SEPARATE-1.html' %}"}    : Wrong 
+
+
+
+
+===================================================================================================
+
+
+
+22 - How to use URL Template Tags in Django
+
+Here we learn about how to we make URL template tags, means if we make a website and many more pages atteched with it, like about-us, services, gallarg, contact and more, so how to you connect them, so that this websites work perfectly, because now we want to go on search bar and rewrite url again and again for every different page, so how to we directly connect these, we see there...
+So there is two ways to manage urls, you direct pass url or second way is you use attribute under url and then use html tag, so here we see in prectically, that how to both things are heppen. 
+
+So first we see first way to atteched links so that there everything works perfectly. So "Lecture 22" is our first commit.
+Here you one thing remember always, you always write links in html as "/" or "/services" or "/services/", so that it always works well, otherwise if you write like: "services" or "services/" then these creates a problem, and why it creates problem because if you write slas sign in prefix then it sure that you want to add this location after's you actual path, because your actual path is set.
+
+Now we will see the second way, here suppose you dont want to give url links, so you also use url tags, it also helpful to gives the links, but there is things are changed now, means you want to first go on urls.py, and in every links path, pass one more argument as name=value. You gives any name there, but remember always the name whenever you use url tags, because we needed these to write name under tags. and this is the "Lectuer 22 2.0" commit section.
+urls.py
+.......................
+urlpatterns = [
+    path('',views.index,name="index"),
+    path('index/',views.index, name="index"),
+    path('about-us/',views.aboutus, name="about-us"),
+    path('services/',views.services, name="services"),
+    path('gallery/',views.gallery, name="gallery"),
+    path('contact/',views.contact, name="contact"),
+    path('admin/', admin.site.urls),
+]
+And the go on html file, and in the places of link provide url tags, so that the accessable using names. 
+HEADER.html
+.............................................
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'about-us' %}">About Us</a></li>
+    <li><a href="{% url 'services' %}">Our Services</a></li>
+    .............................................
+    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+.............................................
+
+
+
+
+===================================================================================================
+
+
+
+23 - How to Highlight Link in Django
+
+Now we will learn that how to we highlight any link? So that which page is open its show as highlighted portion.  
+By the way in my project it automatically working well, maybe javascript working perfectly. But i'm also trying to implement that by django way. Here we use "{{request.path}}" under html file, first we check that on which path we are, so it return path? and with it we apply logic there, means we apply if else statement, and how? you just see there! 
+personallyimplementation.css
+header .active a{
+    background-color: red;
+}
+So, here first we create one css file, and include this file in HEADER.html file's top. And then we are changing our tags logics like:
+HEADER.html
+...................................
+    <link rel="stylesheet" href="/static/css/personallyimplementation.css">
+...................................
+    <li class="{% if request.path == '/' %} active {% endif %}"><a href="{% url '' %}">Home</a></li>
+    <li class="{% if request.path == '/about-us/' %} active {% endif %}"><a href="{% url 'about-us' %}">About Us</a></li>
+    <li class="{% if request.path == '/services/' %} active {% endif %}"><a href="{% url 'services' %}">Our Services</a>
+    <li class="{% if request.path == '/gallery/' %} active {% endif %}"><a href="{% url 'gallery' %}">Gallery</a></li>
+    <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
+...................................
+Actually if we do apply these css part, so it not works well, because there already javascript implemented, but yess little bit blink shown there, means which type of task we want to do, its working there. And one thing to discuss that not must to implement that, but its because suppose we needed this thing to implement in our project then we not face trubble, so that i implemented it. Its first commit.
+And this is the static way, to implement code for highlight link in django. And yess whatever property you want in future, apply it.
+
+Now we will see the second way, here we use url tags, and under it we make alias for everyone's. like:
+...............................
+    {% url '' as url %}
+    <li><a href="{{url}}">Home</a></li>
+    {% url 'about-us' as url %}
+    <li><a href="{{url}}">About Us</a></li>
+    {% url 'services' as url %}
+    <li><a href="{{url}}">Our Services</a></li>
+    {% url 'gallery' as url %}
+    <li><a href="{{url}}">Gallery</a></li>
+    {% url 'contact' as url %}
+    <li><a href="{{url}}">Contact</a></li>
+...............................
+
+Now we are implementing the main feature, that how to "active" working there, so one thing must to you know that there is url works as variable, but mekoo lgg rha, this second way's code is very lengthy, but you learn it in advance, maybe any place, any situation, any where you want to use this logic in future. But yess there is we get url and for every url's we make as url, means we store every link in url variable, so thats the process we do there...
+...............................
+    {% url '' as url %}
+    <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Home</a></li>
+    {% url 'about-us' as url %}
+    <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">About Us</a></li>
+    {% url 'services' as url %}
+    <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Our Services</a></li>
+    {% url 'gallery' as url %}
+    <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Gallery</a></li>
+    {% url 'contact' as url %}
+    <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Contact</a></li>
+...............................
+
+So overall thing is we implemented it currectly and perfectly. But in my project its show only blinks because here internal tag use another css, and because internal css is highly prefrensial, so that there is its blinking in red color only. So with both logics we inplemented these routes. 
+
+
+
+
+===================================================================================================
+
+
+
+
+24 - HTTP Request Methods in Django (Get & Post) 
+
+In django many other type of methods available, like: get, post, patch, put, delete or more. But now we are learning main methods GET and POST only. With these helps we will implementing many logic, and we will see that what is the difference between both. 
+
+
+GET Method:
+The GET Method sends the encoded user information appended to the page request. The page and the encoded information are separated by the ? character. 
+https://www.shivashu.com/index.html?name1=value1&name2=value2
+Restricted to send upto 2024 characters length only.
+Never use GET Method, if you have password or other sensitive information.
+Cannot be used to send binary data, like images or Word documents, to the server.
+
+Actually whenever yo fill the data and submit it, so this method append the whole information on url, with the help of key-values pair, and saperated by ? sign, such as the above example.
+And whenever you use GET method, so there is your data is not sequred, because other people also see your data, so this is not a right ways. We generally in serching only use get method, but must is your data size is less then 1024 characters. And never use it on as payment getway, because its not secured. Because everyone see your get methods data in your URL. 
+
+
+POST Method: 
+The POST Method transfers information via HTTP headers. The information is encoded at described in case of GET Method and put into a header called QUERY_STRING. 
+Does not have any restriction on data size to be sent. 
+Can be used to send ASCII as well as binary data. 
+The data sent by POST Method goes through HTTP header, so security depends on HTTP protocol.
+By using secure HTTP you can make sure that your information is secure. 
+
+It sends whole data or information in HTTP headers, actually HTTPS headers is only for developers, when we switching in prectical then we will see that where is it is exist, so it seds whole information in HTTP headers, basically it was secured method. Like any user is come and fill informations so whole information is sent to headers. 
+Here no ristriction about data size, and data is not going on url. We also send binary data with POST Method. And one problem is with GET method is, if we submit informations so show in url's, so user also submin many information directly in url, but there is no chances to heppens this. payments, logins and registerations related things we sends there. 
+
+
+Now how to we recieve this data, we will discuss later. There is some more methods, like to delete anythong there is DELETE Method, to modifying data we use PUT Method, and PATCH Method is also use for modifications. 
+So now we know that which type of methods in Django, so mainly we use only GET and POST method in general, whenever we want to work securely so we use POST Method, but whenever dont needed to use sequrity related things, like in search, so there we use POST Method. 
+In this lecture we not do codes, but in next lecture we see both methods in prectically. 
+
+
+
+
+---------------------------------------------------------
+Case study of "Lecture 24 2.0 Overall SumUp"
+---------------------------------------------------------
+
+
+Actually in this lecture we not make a code, accotrding to routine we commit this code also, and after that, i realize that, before some commits i forgot "Lecture 21 2,0" commit, "UpdatesSection.txt" file's whole data, because after its commit, when we want that we not needed  "Lecture 21 2,0" commit code change, so i do back commit and considering  "Lecture 21" commit, but i forgot that i lost "UpdatesSection.txt" file's data too. And when i do that again, then i remembered that mistake, so this second "Lecture 24 2.0 Overall SumUp" commit is for that mistake. And also reback the commit to "Lecture 22 2.0", because i don't want to needed the latest commmit related things, and not considering these things. So that we reback all these commits. 
+
+
+
+===================================================================================================
+
+
+
+25 - How to Implement a Form with Get Method
+
+To implement GET method logic, first we take a form in webpage, and making this form time we take two things first action and second is method, so how to we use this action and method on our views file, and how to we use form's data in views, and then how to send this data to html file, this whole process we will see there in prectically. 
+
+Here we do many things, like first make USERFORM.html file, so that there in text boxes we do calculations, and we also make url on urls.py and function on views.py. So here we take two text boxes to take values, and then submitt these values, and it return values as result on below text boxes. And in views function, we use try and except block because whenever we are open this url first time, so there is a chance to come errors, because in first default call no values are coming on this function or request variable, so thats why we do that, and thats the reason why i'm having data variavle in extra for empty dictionary. And in other side, to get passing values there is two ways, and both are works same. 
+val1=int(request.GET["firstvalue"]);
+val2=int(request.GET["secondvalue"]);
+# val1=int(request.GET.get("firstvalue"));
+# val2=int(request.GET.get("secondvalue"));
+
+Actually we also pass all values by views to that webpage in reverse, so that when you submit data, so with result your submitted values also show in the text-box, because otherwise after submitt only result's fields are become full, values fields are empty after submition. And i'm also set 'required' fix field in html page, so that there is must to pass values on the form, otherwise data is never submitting. 
+And i'm make "userform" link for represent this form, so because there is no options to connect this in webpage, so i'm linking it in website's product's first link as "User Form", so to access it you prefer this, and you also able to direct url call.
+
+But a big problem with this GET method is if you fill form first time so there ismake url like:
+http://127.0.0.1:8000/userform/?firstvalue=10&secondvalue=20&addition=&multiplication=
+So there is problem comes because, in this method you directly change value by url, without to fill form, like:
+http://127.0.0.1:8000/userform/?firstvalue=11&secondvalue=24&addition=&multiplication=
+http://127.0.0.1:8000/userform/?firstvalue=12&secondvalue=28&addition=&multiplication=
+So this is the big problem, here you directly writen these urls and enter directly.
+
+And also in these type of works this is must that you use always remember that which type of field's value you take, its name is same as your get mentined name or not? So these all things are always must to remembered because if there is you do mistakes so it creates problems, and you face many trubbles, so do prectical focusly and cleanly.
+
+
+
+===================================================================================================
+
+
+
+26 - Create Form using POST Method with CSRF Token in Django
+
+Now we see how to we use POST Method, and with this method how to we use CSRF token. Actually whenever any form submitted so django always check that your submitted data is really coming from the actual resource or domain, or not? So csrf play a role there to validate a data, and it always generate token and sent with request, and then django check in the background and validate that this token is comingform the actual resources. Actually hackers always hit your website's whole form's data with these internal resources, but if you put csrf token there, so hackers are not able to do spemmings. So to make your form's data secure, and want to stopped spemmings must to we use csrf tokens. 
+So means is simple its a very very secure thing provided by django. Its not sent your data on url, it just sent on http request, and there's we get data and implement our logic. So to use post method, its must that we use CSRF token, so that you able to hit post method. So lets see this in prectical now.
+CSRF Full Form : Cross-Site Request Forgery (CSRF) is an attack that forces authenticated users to submit a request to a Web application against which they are currently authenticated. Actually CSRF is a varification field. 
+USERFORM.html
+.........................
+    <form method="post">
+        {% csrf_token %}
+            .........................
+    </form>
+.........................
+And always remember that, its must that if you use post method in django, so you use CSRF, otherwise there is coming errors. So its must, and its also remembered that, its not generate any fix token, because in every request it creates new token. And to chack that this request is actually changed or not? so to check it you go on brouser and inspect this page and go on form tag, and its just below input field you just see that, there this input type is hidden, means user cant able to see this input firld, and name is fixed, but its value is always changing in every refresh, so thats the proof that in our token is changing always whenever we refresh our page. And thats why hackers never able to break this sequrity. 
+Now we implemeting the logic that how to we get this data, so we go on views.py file, and make a chages, and there is one more thing we add, and its if statement, because there is we use post method, so code is like:
+views.py
+.........................
+def userform(request):
+    try:
+        if request.method=="POST":
+            # Both ways working correctly!
+            val1=int(request.POST["firstvalue"]);
+            val2=int(request.POST["secondvalue"]);
+            # val1=int(request.POST.get("firstvalue"));
+            # val2=int(request.POST.get("secondvalue"));
+            .........................
+    except:
+        pass
+    return render(request,'USERFORM.html',data);
+.........................
+
+Now as developer, we want to know that where is my data gone is we enter this data and submit it. So to check it you go Inspect, then go on Network option, and then there is show Name, below this Name section you see there is a file, which name is same as your form file name, in my case this file name is "userform" so you open it and chose Headers section and in this file's below you see there is your values and token will show, so there is your value, and you not able to change this data in any ways. So in this way you see your submitted data. 
+
+
+
+
+===================================================================================================
+
+
+
+27 - How to Redirect Page in Django?
+
+Now we see how to we implement the redirection page, like if we successfully login on any site so control is shifting from our actual id, or show thankyou page. Means without clicking link we direct redirect on page, like in Meta successfully login we redirect on Profile page or after Payment successfully, it redirect on Thankyou page, so these all are redirection's logic. 
+So to implement this redirection logic, we use two function, we see these perctically in there. Now we are implementing these logics just to explain how it is working, but when we are woking on login system in future so there is we also use session, because we store values on session, and use these values in other pages, in future. So lets now we implement these redirection's logic here...
+
+So initially we import our first 'HttpResponseRedirect' function form django.http, so that you able to use redirect. And now you implement this logic on your "userform", so after your values put, whenever you click on button so it not display your result on you below text boxes, it redirected you on the other webpage like to other webpage. 
+So because this redirection is a good property there, so i'm making a one more webpage as USERFORMRESULT.html and also make url in urls.py and function in views.py. And i'm make "userformresult" link for represent this form, so because there is no options to connect this in webpage, so i'm linking it in website's product's second link as "U.F. Result", so to access it you prefer this, and you also able to direct url call.
+So after use redircect method you jumping on other webpage, only here we pass path on that location where we want to jump. Now we are also trying to sent all data on redirected page, so that your result is shown there. So for it with path, we also pass path and atteched values saperated by '?' and '&' sign, as string on redirect method. 
+
+views.py (Overall! Here included both ways and functions.)
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+.......................
+def userform(request):
+    .......................
+        url='/userformresult/?addition={0}&multiplication={1}'.format(val1+val2,val1*val2)
+        # return HttpResponseRedirect(url);     # first way
+        return redirect(url);     # second way
+    .......................
+def userformresult(request):
+    data={}
+    if request.method=="GET":
+        addition=request.GET.get('addition');
+        multiplication=request.GET.get('multiplication');
+        data={'addition':addition, 'multiplication':multiplication}
+    return render(request,'USERFORMRESULT.html',data);
+
+So in this way we redirect files, and in this way we passes values, and we use this way to send values, because we don't want to use sessions here. Session logic we implemented after some lectures, when we working on logic and registration related things. 
+And more thing we've to discuss is that, with the form tag, with 'method' we also use 'action' there, but now we not use it. If we not use 'action' so it takes your webpage's current url, means take till the userform's location path by itself's. In 'action' we pass that you can redirect from one page to another page, and get the value of this page there. So we will see 'action' in the next lecture that how to you access this page's post method data, in the other page.
+
+
+So now we import our second 'redirect' function form django.shortcuts, using this we also able to use redirection. And it works same as HttpResponseRedirect, you only replace 'redirect' name on its places, thats it. 
+
+
+
+===================================================================================================
+
+
+
+28 - HTML Form Action URL in Django
+
+Now we will see all things about 'action' url. Actually whenever you use this 'action' attribute in form tag, means it will be going to another webpage, or maybe you hit any otherone url, and form's whole data you transfer on the other url. So if you not use action in form tag so its bydefault considering parent url or considered which path open on current situation. But using 'action' we able to submit this form's data in other url, so that on that url we call any other view function, and on this way we get this data.
+So overall means is if you submit a form, so you want form's whole data transfer into another form or page or may be hitting another url, and there you implementing this logic. See if we not use 'actions' so 'userform' is our url, and only this url is hitting always if we refreshing it. But with the use of action, we hitting another url, and sends form's data, and there you get this data. So now we will implement this logic by prectical. 
+
+So first we go on USERFORM.html file and add 'action' there, but here we want to make another url on urls'py, and function on views.py, and then we add on action under form tag (as the form of url pattern). So we make there url as 'submitform'. 
+
+USERFORM.html file
+.....................
+    <form method='post' action="{% url 'submitform' %}">
+    {% csrf_token %}
+        .....................
+    </form>
+.....................
+
+urls.py
+.....................
+urlpatterns = [
+    .....................
+    path('submitform/',views.submitform, name="submitform"), 
+]
+
+views.py
+def submitform(request):
+    # Here we implement same 'userform' function's logic
+        .....................
+        print("By 'submitform' URL");
+        .....................
+    .....................
+
+In views.py for 'submitform' we implement almost same 'userform' function's logic, only to represent is unique we print one more line which is show on command prompt, that this control is really going to 'submitform'. SO this is really unique thing, here we are shifting control one url to another, so thats the good way or logic in Django. 
+
+
+
+===================================================================================================
+
+
+
+29 - Django Form Tutorial For Beginners - Getting Started
+
+Now the lecture where we make Django's personal Form's model to make form in django. Actually django provide us to make a form according to its own way, there is two ways to make forms, first is using its own Forms Model way and second is using API's, we will dicuss it later. We know recently that we make form by ourself, But now we see that how to we make Forms by Django's personal Forms Model. 
+So First we open our last form, which we make by ourself.
+But first i told that there is first we want to make a forms.py file under modules. Now here we not make a models, because we do make model in future. Buttt always remember that this file is exist under the apps only. So now we make it under project's same name app. And there we import forms library, and then we make a class and gives name which we use when we import this form in viwes.py file. And under it we take forms's class Form, then we makes fields, so by current scenario we want to make two fields, for 'firstvalue' and 'secondvalue', so just see this directly:
+forms.py
+from django import forms
+class userForm(forms.Form):
+    firstvalue=forms.CharField()
+    secondvalue=forms.CharField()
+And then you go on views.py and importing this forms.py file there, and we also change 'userform' url code, there we store our class in one variable, and pass this variable under dictionary, and also on under post's condition we change value by this variable, and render this page to 'userformresult', by the way now here our non post method is call only, because for the after submit form we implement action, who changing the location to a 'submitform' url. Now you just see this code:
+views.py
+from .forms import userForm
+...................
+def userform(request):
+    func=userForm()
+    data={'form':func}
+    ...................
+        data={
+            'form':func,
+            ...................
+        }
+        url='/userformresult/?addition={0}&multiplication={1}'.format(val1+val2,val1*val2)
+        return redirect(url);
+    return render(request,'USERFORM.html',data);
+
+Now we are go on our USERFORM.html file back, and there we remove our textboxes field, and on these places you just write just like that:
+USERFORM.html
+.....................
+    <form method='post' action="{% url 'submitform' %}">
+    {% csrf_token %}
+        {{form}}
+        .....................
+    </form>
+.....................
+And now you see that, there is show your text boxes. Yesss maybe they are not looks managed in you PC, and we do manage, but till now we have textboxes, and there is code runs perfectly. And because we not pass anything on fields when we make class, and thats why its bydefault considered required field, means there is must to pass values on field, but we also change this validation in future.  
+
+
+
+Now if we are commit 2.0, because here we discuss about if we want to pass any restriction related parameters on from's class's fields. So you see there, for our this html code we make like that in python:
+
+forms.py
+from django import forms
+class NameForm(forms.Form):
+    your_name = form.CharField(label="Your Name", max_length=100)
+HTML Code:
+<label for="your_name"> Your Name: </label>
+<input id="your_name" type="text" name="your_name" maxlength="100" required/>
+
+So we see much more thing about form here, Now we want to set width and label on the forms file's class's fields. So pass label on this, so that on this, so that this text show on you labels front or top depend on you other parameters. If we want to set this field as not required, or want to remove its validation, so we pass false there. And if we want to apply any class or change its type, so to do type change we use widget, and there say that we want TextInput, and on it we pass parameters, which means what changes you want to apply, so we pass bootstap's "form-control" class there, like code is: 
+firstvalue=forms.CharField(label="First Value", required=False, widget=forms.TextInput(attrs={'class':"form-control"}))
+secondvalue=forms.CharField(label="First Value", required=False, widget=forms.TextInput(attrs={'class':"form-control"}))
+And we also use EmailField there, if we want to use set validations, se we also do that, see this EmailField:
+email=forms.EmailField()
+So there is many fields there, if you want to check that, you visite on django personal fields related documentations, there is all details available.
+Visite a link : https://docs.djangoproject.com/en/4.0/ref/models/fields/
+
+> Model field reference: 
+    | Field options : null, blank, choices(Enumeration types), db_column, db_index, db_tablespace, default, editable, error_messages, help_text, primary_key, unique, unique_for_date, unique_for_month, unique_for_year, verbose_name, validators(Registering and Fetching lookups). 
+    | Field types : AutoField, BigAutoField, BigIntegerField, BinaryField, BooleanField, CharField, DateField, DateTimeField, DecimalField, DurationField, EmailField, FileField(FileField and FieldFile), FilePathField, FloatField, GenericIPAddressField, ImageField, IntegerField, JSONField, PositiveBigIntegerField, PositiveIntegerField, PositiveSmallIntegerField, SlugField, SmallAutoField, SmallIntegerField, TextField, TimeField, URLField, UUIDField. 
+    | Relationship fields: 
+        | ForeignKey : Database Representation and Arguments. 
+        | ManyToManyField : Database Representation and Arguments. 
+        | OneToOneField. 
+    | Field API reference. 
+
+> Field attribute reference: 
+    | Attributes for fields. 
+    | Attributes for fields with relations. 
+
+
+
+
+===================================================================================================
+
+
+
+30 - How to Build a Simple Calculator in Django
+
+Here we make calculator, actually logic is, we want to two textboxes and onedropdown list, where we select operators to perform operatoins between these text box's data.
+So first we make a HTML page and also url on urls.py and function on views.py. And we want to add this link on website, so we add this on Products options list's last on HEADER.html file. So here we adding many things. You see in the code what code we change, because these code changes are basic, and we do make same forms before some lectures, so code is almost same, only one dromdown list we take extra there. 
+
+So we make this perfectly, Here is must to use try and except, because suppose user enter wrong input or maybe its not select operator, so in this case there is come error, but using error handling try and except we manage this error. Here we manage that if we not fill any data or not select any key by html page, yess means there we use required field. And only the main things we mention there and its a eval() function, who solve such as "10*20" strings, so we use it to get result perfectly, but in the case of "shivam*12" there is come error and control is shifted on the except block. So means is clear if we use try except block so our script is never going to break. 
+
+
+
+===================================================================================================
+
+
+
+31 - Check Even-Odd and Prime Number Using Django Form
+
+Here we are making these programs so that you have set command on the get or post logic, and in future when you want to implement insersion deletion and updation logic so you do that properly, and there is not have any chance to do forget logics that how we implement?!?? 
+So now we will see that how to we check our number is ever or odd? So whole idea's code we see in this lecture. So first we make EVENODD.html file, and make url on urls.py file and also make function on views.py file. Actually its logic is very simple, not must to discribe more code. And we add its link under Products.
+
+And we also make Prime Numbers logic, and for it also we make PRIME.html file, and make url on urls.py file and also make function on views.py file. And this is the code extra, its not inncluded on lectures video, so remembered it always. And its linke also under Products. 
+
+
+
+===================================================================================================
+
+
+32 - How to Create Simple Marksheet in Django
+
+To make marksheet we want to take 5 inputs, then we total these inputs, and on the bases of its make pursentage of its, and then on the bases of its we make division. Actually this is a python program, but we spending more practices on form, thats why we do implemet this logic by django and forms, so you see this impementation. 
+Actually you directly considered code, because its so easy, and explaination is tricky always, so you directly visite on the page directly. Here we only take a data and do operations with this data, and return a massage with student's persentage. Thatsit! 
+
+And here we also modifing some files code, not big modifing, its just class change, actually here we using email's class there, but we changing its by name's class. So only that change we do on some files, thatsit! 
+
+
+===================================================================================================
+
+
+
+33 - Manual Form Validation in Django
+
+Here Manual Form Validation means if we not set required field inder the tags, so on that situation if we not put any value and direct click on submit button so there is gives error beacuse we use eval() function, who says if you pass anything so which data i conver into int or float, so we want to set Manual Form Validation, so that we handle these invalid things in django. 
+
+So nothing special we do there, we apply this logic on EVENODD.html file, here we only check with if statement under views.py, we check that if this block have Nothing then immidiate return on this page with error massage, and in html page we use django if statement, and under it we use one div tag and use a class who show this massage specially in Red color box. So overall the means is we tackle this proble with if statements. 
+
+EVENODD.html
+.....................
+    <form method="post" class="customform text-white" enctype="multipart/form-data">
+    {% csrf_token %}
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+              Please Enter The Value
+            </div>
+        {% endif %}
+        .....................
+.....................
+
+views.py
+def evenodd(request):
+    .....................
+        if request.method=="POST": 
+            if request.POST["firstvalue"]=="":
+                data={'error':True}
+                return render(request,'EVENODD.html',data); 
+            .....................
+        .....................
+
+
+
+===================================================================================================
+
+
+
+34 - What is Model - Models in Your Django Application 
+
+Actually Model is a very important part of Django. Models are play a role as related to database, and as Module too. 
+So first we see this What is a model? When we see any website or suppose we consider Django, so there many sections like services, sliders, form's data save section, so means these types of many sections are there, and till now we are nothing to dynamic now, we plays now only statically. But we want this website dynamically, otherwise we not able to apply these dynamic logics. Because if client want to you a website, so there is we given admin pannel so that client add things, so there is must to we make our website totally dynamic. So to add opption on admin side we want to apply model's logic. 
+
+Like in a website we see that there is a sliders and in every slide we have links and many more things, so we see there that we needed these data as model schema, otherwise second option is we go on a code and do changes there, but this is the static type work. So to want make this website ad dynamic we use models. Model gives us the schema, because we make models using class, and under classes we set fields, who represented database table's colomn. In every model's under, we make fields, many fields are there who depending on data type. So whenever you create models, so there is we create schema set, because of many fields under its. And then we do makemigrations, then there is ready one migration or schema, and then under it we create table, after do migrate. So there is we use three commands, we discuss there three commands, we discuss it later when we implement.
+So not matter what we see in this lecture, we are do implement this daynamic logic in my way, according to my website's things, because 
+So we make models for these things representation which one we want to represent as dynamic, Because models representing to our tables, means tables are related to models or databases. And after create models we get the option of admin, and every tasks option presenting in the admin's front according to its uses, and then admin able to add data things directly. So there is model plays important role there.
+
+Now the case is how we do make this, so first things is: so first we make class as model or many models we make there, on which we set fields there according to needs, and after creating apps we add this under same project's name app's setting.py's INSTALLED_APP's section. And on these we also add primary or foregin key, we see this in future. So after creates model, we do apply three steps, first we do makemigrations so that there is created schema on migration file under app, and then we do migrate and then it is created as table.  
+|>> python manage.py makemigrations
+|>> python manage.py migrate
+So you want to know to do three things, first is make model, then convert it into migrations by makemigration command, and in the last we do migrate, and if you do that so on your admin we get this option, and then adding these data searching and deletion and updating and more operation's option's gives by model. 
+And to make models we use a command, and then our one app is created there. so to make service app we apply command is:
+|>> python manage.py startapp service 
+So lets make this service app there with this command, actually we manage all add, delete, edit all options managed by this command. 
+And on this folder there is automatically creates many files, we create models on models.py file, and what you want to show on your admin, you gives these informations on admin.py file. And more many files are there but we mainly use only these two files. 
+
+
+
+===================================================================================================
+
+
+
+35 - Creating a Model in Django
+
+Here we do implement all codes prectically. But one notice is there, i'm implementing things according to my project, because which template uses on video lecture its totaly different from my template, but yess in my template i'm implement this logic in another space. 
+
+So because i'm already create service app, so first thing is i'm deleting it and again put the command is:
+|>> python manage.py startapp service 
+And with it our app is created. Then on this new app we do code to create a class and se fields, like:
+models.py
+from django.db import models
+class Service(models.Model):
+    service_icon=models.CharField(max_length=50)
+    service_title=models.CharField(max_length=50)
+    service_des=models.TextField()
+
+And must is to you always know that what is our data inputs type, because according to this we select fields, and must is to set max length. And more many fields are there, you just chaeckout the official documentation or visite to the Lecture-29. 
+And after to make this code you think that you not make id there, because its must if i'm creating a table, so the reason is when we make migrations so there our id is automatically generated, and here it set auto increment by default. So if you make 2-3-4 filelds, so actually there is you make 3-4-5 fields in general. 
+Now second task is to you go on project's same name app, and go on its setting.py file and add this 'service' on INSTALLED_APP's list. Now our this app is connected with our settings. 
+Now the third task is you apply migration first, so that there is created schema on migration file under app. And you see after do this, there is show one file is created, and if you open this you see there is created n+1 fields. So thats the internal things. 
+|>> python manage.py makemigrations
+But now only model created, this not converted into tables, so now we do fourth thing is to apply migrate command. So all command is: 
+|>> python manage.py migrate
+So there is your service migration is applying successfully. If you want to see so open DBBrowser and see there our service_service name's table is created, and open it and see there is our all fields are as table form. Actually whenever you do makemigration so on your here's django_migrations table our this service table is added. 
+So we do everything on settings.py and models.py file, but is our this option is coming on admin section or not? So no this services option is not added there, its because there is must to do entry on your service app's admin.py file. And yess we talk about admin section means we are talking about after create superuser, visiting as admin. so code is like:
+admin.py
+from django.contrib import admin
+from service.models import Service
+class ServiceAdmin(admin.ModelAdmin):
+    list_display=('service_icon','service_title', 'service_des')
+admin.site.register(Service,ServiceAdmin)
+So now our this option will show on our admin section. Here whaterver fields we pass on our list_lisplay, only these fields will show on your admin section, or if you want to pass less fields under this, so this is also working perfectly. And also must is to use register option, so that all these fields will show on your admin section.  
+And this data is also added on your sqlite database. You just open DBBrowser and see there is our service_service name's table, there is our latest data added. So thats how our data is saved, and now we are able to use these data dynamically. 
+
+And yess there because to go admin section, we go on url and after rewrite we access admin section. Because there is noways to visite admin section, so I'm includeing this in our websites middle image section, Thatsit. 
+
+
+
+===================================================================================================
+
+
+
+36 - How to Get All Table Data in Django | Objects All () 
+
+Now we will see that, if data is in table, then how to we show this data on html form. So means is simple, there is we see that how to we get all tables data in django. And then we know that how to we fatch data thrue of models. So lets see this data.  
+But i'm created new model here because in the last table we make according to lecture's way class, and now we not using this, so that we create another model, and applying this data into a another form. 
+So first i'm created model as 'trialData', and adding it on admin section, then do makemigrations and migrate, and then adding the data one by one. And yes i'm coping 'Our Services' page's all code into a another new 'GetAllTableData.html' file, and also make url and function for this. And on this file we do apply these operation.
+And we know that to get these data, we do code on our views.py file's function, so lets do some code to get this data, and then we do apply it on this html file using django's for loop. 
+
+models.py
+............................
+class trialData(models.Model):
+    head_data=models.CharField(max_length=50)
+    class_name=models.TextField()
+
+admin.py
+............................
+class trialDataAdmin(admin.ModelAdmin):
+    list_display=('head_data','class_name')
+admin.site.register(trialData,trialDataAdmin)
+
+GetAllTableData.html
+............................
+    {% for data in gettingData %}
+         ............................
+        <h3 class="text-strong text-size-20 text-line-height-1 margin-bottom-20"> {{data.head_data}}</h3>
+        ............................
+        <p class="{{data.class_name}}">Integre probatus accusata ne est</p>                    
+    ............................
+    {% endfor %}             
+............................
+
+
+
+
+===================================================================================================
+
+
+
+37 - How to Order a Query Set in Ascending or Descending 
+
+We see in the last lecture that i'm geting inserted data in sequencially wise, now we see there if we want to see this data order wise, means how to we apply order_by consept. Suppose we want to show only Even ID's data or Odd ID's data or all ID's data who devided by 5 or 10 or so on. Or may be you want to shoe data set in ascending to descending order. So okay google, we show data set as descending order. So to this we just only change on our views.py file's function. 
+But one more thing is must, which bases we implement ordered_by consept. Because here is things normal, but if we are gonna big project management, then there is many things, which we handled, like only this year or month or week or days products show, only samsung's or apple's or one+ componey's products show, and explaination of its very long. So here overall means is, we always have any base case there, which's according we select data and sent to html page as response, for every request. And here base is ID. And according to the ID's we revert all data, and how? we see there...  
+def getalltabledata(request):
+    gettingData=trialData.objects.all().order_by('id');
+    ...................
+Actually to use orderby consept, we want to call this order_by() function, after the all() function. And under this we pass the field name. So we select 'id' there, but now here show all the fields sequentially, because id's are already set. But this is not works same, suppose you secent any character fields, where name is not arrenged a to z, then there is result not show sequentially, it show a-z format not matter your ID's are sequentially or not, we see this also in the last of this lecture. So okay! But if we wants descending we want to write '-' character before to write field name under 'order_by' function.
+def getalltabledata(request):
+    gettingData=trialData.objects.all().order_by('-id');
+    gettingData=reversed(trialData.objects.all().order_by('id')); 
+    ...................
+
+Now we see that if we select any string related field, because there is its definatly not set in ascending or descending, because its not must that if our ID's in ascending then strings are also Ascending. I share base of my fields : 
+trialData : {
+        ['id', 'head_data', 'class_name'],
+        ['1', D..... 'text-.....'],
+        ['2', 'Q.....', 'text-.....'],
+        ['3', 'I.....', 'text-.....'],
+        ['4', 'A.....', 'text-.....']
+    }
+
+So now if we want to do ascending 'head_data' field, so ID's are going to like: "trialData:[4,1,3,2]". And to do this as descending we add on this field '-' sign, like as '-head_data', then our ID's are going to like: "trialData:[2,3,1,4]". So thats why i said that not must that if our ID's in ascending then strings are also Ascending. So okay Google! Hehh!
+
+
+
+===================================================================================================
+
+
+
+38 - Django - Limiting Query Results
+
+Now suppose we want to set limites on quary, Means like we get the 10 objects/rows, but we want to show only 2 or 4 services only.
+So how to we set limites on this query, see see there in this example. 
+
+So to do this we use slicing consept on our gettting value time, so that it takes only the data, in which to i needed. So means is simple we want to get the data but only first 3 data we wants, so the code is: 
+def getalltabledata(request):
+    gettingData=trialData.objects.all().order_by('id')[:3];
+    ...................
+Suppose we want to show middle data, like we have here only 4 data but suppose we have 10 data sets, so if you wants data 3-to-6, so you set there [2:6], because there is starts from 0 not from 1, and 6 is because never showing our last index, so to 3-to-6 we use [2:6].
+Or if you want last 3 data, so you slice in different ways, not by [-3:], because there is reverse slicing is not happens! So our code is:
+def getalltabledata(request):
+    gettingData=trialData.objects.all().order_by('id')[::-1][:3];
+    # gettingData=trialData.objects.all().order_by('-id')[:3];   # also do
+    # gettingData=reversed(trialData.objects.all().order_by('id'));   # not possible to do this.
+    ...................
+Or more many ways to do that, but must is to know that there is we never use reverse slicing. Thatsit! 
+
+
+
+===================================================================================================
+
+
+39 - Custom Template Filter in Django | Complete Implement & Logic
+
+Here we using Custom Template Filter, because such situation is coming where our data having tags, like : "Hey <b>Shivam Shukla</b>.", so actually here we want this name in bolt tag, but it not implementing there, so to implementing this we use 'safe' filter. So that then your all tag which is under data, it so implementing its actually works.
+..........................
+    {% for data in gettingData %}
+          <h3 ............. >{{data.head_data | safe}}</h3>
+            <p class="{{data.class_name}}"> ............. </p>  
+    {% endfor %}             
+..........................
+Similerly if you want to see your upcoming data in uppercase so write upper in 'safe's' place, or wantslowercase so write lower, or you also use two or more tags, but yess not use upper and lower in one line, because its not mean, but use like (safe and [upper or lower]).
+Or if you use 'first' so there is show only your string's first character only. There is also we check all string's word's count by 'wordcount' tag, we also check strings character lengths by 'length', and we also do slice our string by "slice'0:3'", means get only first 3 characters there. 
+So you check all fiter tags by yourself by visite to a its official documentations. Because there is many filters and developer using there by its needs, so you check these by yourself. 
+Link is : https://docs.djangoproject.com/en/4.0/howto/custom-template-tags/
+
+
+
+===================================================================================================
+
+
+
+40 - Django TinyMCE Editor Integration with News App | A Rich Text Editor for Django
+
+Actually here we see how to we integrate TinyMCE Editor. Actually this editor's work is when you make any model or app so there we define fields name, like title discription and more, so we want to add editor in discription section, so that admin has editor where admin do some specific tasks like chage language stype, do bolt itelic or many more task with it. So to doing this we want to install a python's package in our system, ander after installing this we able to use this editor in our project. So lets we inplement whole thing in prectical. So first task is to we install 'tinymce' package:
+|>> pip install django-tinymce 
+Then you go under same name's app, and on settings.py file's INSTALLED_APPS section, and add there 'tinymce'. And then we do use this editor on our project. 
+
+Now we want to use this 'tinymce' editor in another app, its name is 'news'. So first we make app, so command is:
+|>> python manage.py startapp news 
+So there is 'news' app is creates. Now we go on its models.py file, and make a class for its management. And we make there two fields, first is title, and second is discription, where we implementing this editor, but first import somethings in models.py, so code is...
+models.py
+from django.db import models
+from tinymce.models import HTMLField
+class News(models.Model):
+    news_title = models.CharField(max_length=100);
+    news_desc = HTMLField(); 
+And then we add this app under same name's app's settings.py file's INSTALLED_APPS section.
+settings.py
+.................
+INSTALLED_APPS = [
+        ................., 
+        'service',
+        'tinymce',
+        'news',
+]
+Then we go 'news' app's admin.py file, and there we mention this, so that in our superuser's admin side show this news app, so code is: 
+admin.py
+from django.contrib import admin
+from news.models import News
+class NewsAdmin(admin.ModelAdmin):
+    list_display=(news_title,news_desc);
+admin.site.register(News,NewsAdmin);
+Then after this we do two things, first makemigrations and then migrate. So now code is:
+|>> python manage.py makemigrations
+|>> python manage.py migrate 
+So now our all works is done! Now we go on admin section, and there adding the data, but you see there your aditor is already there, means we are adding the data according to our situation, means if we want to data as bold, itelic, size change or anythings we want to designing with this data, we able to this with editor. So here we able to do use editor in this admin sides, and we also able to use this editor in django form, means if we want to use this editor in front end side, so thet user also use this and then save data, so you also able to do implement that. 
+
+
+But one this is there must to implement, means you add this below line on you same name's app's setting.py file: 
+# Must to add this, if you use 'tinymce' editor...
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField';
+I really dont know why needed this to add on my setting.py file, but maybe its because we use another resources on our project, so maybe this internal implementation is the reason. By the way, this problem's solution is not by lecture, infact there is not coming this error, so only in my leptop come this error, and i search this solution by google's 'stackoverflow'. Okay google, Thatsit! 
+
+
+
+===================================================================================================
+
+
+
+41 - Marquee Tag for Display News in Django
+
+Here we see that how we display news in marquee tag, so that our news will displayed as in sliding ways, lerft to right or right to left.
+So now we are adding some data on our news, and then displaying this. So we want to displat our news's title under marque tag. 
+So we are going on google, and find the contant, so that we save this dummy contant, and then we use this contant. 
+And we using a marquee tag, and to check that how its work, we implement this idea, first in front page means an index.html file...
+index.html
+....................
+    <marquee>
+      <h3 style="color: darkred;"><b>The breaking news is just coming's...!!</b></h3>
+    </marquee>
+....................
+Now you go on same name's app's views.py, and then first import your news app there, then we do code there, so that whenever we coming on our website so that there is show all news's showing continuesly using for loop and saperated by '&nbsp' tag there, actually '&nbsp' gives us the space. 
+views.py
+def index(request):
+    newsData=News.objects.all()[1:];
+    data={
+        'newsData' : newsData,
+    }
+    return render(request,'index.html',data);
+Here html code is fully ready, but we want to use 'a' tag with every news, because if we want to click on it to see full news, then we go on a link for this news's discription. 
+
+Actually if we use 'a' tag there, so here fonts color is change automatically, because it changing color in blue, so to changing this we also use style, but you also use stylings by css file, so here we make 'main.css' file, and atteched this in header.html. So now code is: 
+main.css 
+marquee{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    margin-bottom: 40px;
+    margin-top: 27px;
+    color: white;
+    z-index: 999;
+    line-height: 50px;
+    background-color: white;
+}
+marquee a{
+    color: red;
+    font-weight: bolt;
+}
+
+index.html
+....................
+    <marquee>
+      {% for news in newsData %}
+        <a href="">
+          {{news.news_title}}  &nbsp &nbsp &nbsp
+        </a>
+      {% endfor %}
+    </marquee>
+....................
+
+So now things are going perfectly. Now how to we click on it so it's going on news's details page, these things we discuss later. In the next lecture we will see that how to we provide link to every news. So thats it NOW! 
+
+
+
+
+===================================================================================================
+
+
+
+42 - Display News in Detail Page with Dynamic URL
+
+Now we see how to we display news in details page, after clicking on its link. There all things display properly as actual NEWS. And here we use "....objects.get()" function in the places of ".....objects.all()". Get always comes with takes a single row, and on there we want to pass condition, now how to things actually happens, we will see in this lecture. So lets see there that how to you make dynamic url with dynamic data. 
+But first we use javascript's two events on marquee tag, "on mouse over and out", with these helps if we pointing cursur on marquee tag's news's, so these marquee's content stopping immidiatly, so that we clicking on right NEWS's link. 
+index.html
+....................
+    <marquee onmouseover="stop()" onmouseout="start()">
+      ....................
+    </marquee>
+....................
+
+And then we make one html page, url and function to represent 'newsdetails', and there we use one extra parameter 'id', who play a very important role in this workings. And for 'newsdetails' html page, we coping about us page's code and do apply there...
+
+urls.py
+................
+urlpatterns = [
+    ................
+    path('newsdetails/<newsid>',views.newsdetails, name="newsdetails"), 
+    ................
+]
+
+views.py
+def newsdetails(request,newsid):
+    newsDetails=News.objects.get(id=newsid);
+    data={
+        'newsdetails' : newsDetails,
+    }
+    return render(request,'newsdetails.html',data); 
+
+Actually we use all() when there is a chances to coming multiple rows, like if we search tha 'shivam' names all user, so there is a chance to coming multiple users. But if you search unique data, who anotherone user not have, so there is we coming only one single data, and thats why we use get() here. And we don't use loops in this html file, because we know only one row is coming there. So code is... 
+
+newsdetails.html
+................
+    ................
+        <h3 class=".......">
+          {{ newsdetails.news_title }}
+        </h3>
+        <p class="......."> 
+          {{ newsdetails.news_desc  |  safe }}
+        </p>
+    ................
+................
+
+So there is we using routes or url on the every news, so that there is open links,
+Here in the every news's title we pass routes or url's links, here we only pass id on url. In the next lectures we use slugs logic, slugs is nothing, only title's data is there and between every words '-' sign is atteched there, and how to we manage this we see in the next lecture. 
+So there is we see how working with dynamic data, with dynamic urls, and with dynamic details page. So okkay google thatsit! 
+
+
+
+
+===================================================================================================
+
+
+43 - How to Reset Django Admin Password? - Easy Steps 
+
+Listen to reset password we use the forget passwords logic in future, but if we working on local, and we want to reset the password, so how to we reset the password. Now if we know user name then okey, otherwise we go on DB Browser and there open you project's sqlite database file, and under this file there is a option to check all user's and password related informations on "auth_user" section, so there is your user name also show's on the all users list, but because Django incripts password as 'Hash Code' format. So in this situation we get username, and because now we know username, So to reset password the command is:
+|>> python manage.py changepassword vashu07
+Here if you write wrong then it show that, your username is not exist. But if username is exist then asks you new password, and after entered it this new password is your actual password. 
+So I'm changing my ID and password is"
+ID : vashu07
+Pass : vashu12345
+By the way in the next lecture I'm again retake my last lecture's project's database, so that our ID and password is come back again.
+So okay google, thatsit the lecture!
+
+
+
+===================================================================================================
+
+
+44 - How does Filter Work in Django | Django Filter
+
+Now we see that if we want to filter any data then what we will do in Django.
+Actually we already see that if we want to all data then we use ".....objects.all()", and if we want to any single data then we use ".....objects.get()". But we are use ".....objects.filter()", when we wants data in the bases of searchings. So lets see this prectical implementataions that how we are set logics.
+
+Now there we using 'getalltabledata' url, functiom and html page, because we know there is coming 4 data. And we adding one search box there, in which we are writing title name and then there is show only perticuler dataset. So first we make a search box,
+GetAllTableData.html
+..................
+       <form method="get">
+         ..................
+         <input type="text" name="servicename", value="" style="height: 30px; width: 200px;" />
+         <input type="submit" value="Search" />
+         ..................
+       </form>
+..................
+
+And then we rewrite the 'getalltabledata' function's code. So now code is:
+def getalltabledata(request):
+    gettingData=trialData.objects.all();
+    # gettingData=trialData.objects.all().order_by('id');
+    if request.method=="GET":
+        value=request.GET.get('servicename');
+        if value!=None:
+            gettingData=trialData.objects.filter(head_data=value);
+            # select *from tablename where tablename title='head_data'
+    data={
+        'gettingData':gettingData,
+    }
+    return render(request,'GetAllTableData.html',data);
+So with this if we search same title names, then data will show there. 
+
+
+
+[ Commit : "Lecture 44 2.0" ]
+But now we want that if we searching only one word then all data who have that word, all datasets are showing below there. So here we implement the "like's" logic. Actually, we only add add '__icontains' word in suffix of filter's key, key is a name of you mention on model fields. 
+def getalltabledata(request):
+    .................
+        if value!=None:
+            .................
+            gettingData=trialData.objects.filter(head_data__icontains=value);
+            # // with it we search word in both side, below syntax is not as it is!
+            # select *from service where service title likes '% worddata %'
+    .................
+    return render(request,'GetAllTableData.html',data);
+So now your data search is applying with only one character also, and by one word and whole exect strings also. So now all things working perfectly, we there is searching performed by your searching strings bases!
+
+
+
+[ Commit : "Lecture 44 2.0" ]
+Now we want that, if we search, but there is no data matches, then there is must to show "No Data Match Found" massage. So we able to do that in python using if's else consept, but here we are working on Django's template, so there syntex is little change. 
+So here we replacing 'else' by 'empty', so that if data is not coming there then your else part's massage will show. 
+GetAllTableData.html
+........................
+    ........................
+        {% for data in gettingData %}
+            ........................
+              <h3 class=".......">| {{data.head_data | safe}}</h3>
+                ........................
+                <p class="{{data.class_name}}">Integre probatus accusata ne est</p>                    
+                ........................
+            ........................
+          {% empty %}   
+          <center>
+            <b style="color: red;">No Data Found!</b>
+          </center>
+        {% endfor %}     
+    ........................        
+.................   
+
+
+
+===================================================================================================
+
+
+45 - Add Auto SlugField in Django
+
+Here we see that how to we add Auto Slug field. Actually slug field is, whatever the title, like service's or news's title we gives, so to this representing as slug bases. Like here we pass our id on url, but this id pass is not right way there. So best approch is we pass slug on url, so case is how to slug is generated, now to generate slug we use AutoSlugField, abd this field working on our title, means whatever our title, AutoSlugField working on the bases of this, then our data is getting. So like for "about us" url, slug is "about-us".
+So lets do this working in practical: 
+
+But first we install python-django's one package there, 
+|>> pip install django-autoslug
+
+And first we import this package on models.py file, and also add one more field on your News class under the News app's models.py, so now overall our models.py file is,
+models.py
+from autoslug import AutoSlugField
+class News(models.Model):
+    news_title = models.CharField(max_length=100);
+    news_desc = HTMLField(); 
+    slug = AutoSlugField(populate_from='news_title',
+                         unique=True, null=True, default=None)
+
+So always remember there is first import then use this AutoSlugField. Actually here 'populate_from' means which field's thrue we want to make slug, and possible to may its 'unique' or 'null' too, and 'default' none means you go with none value. 
+Then news tasks is we do makemigrations and then migrate, so that first there is migrations applyed and then all tables are created, 
+|>> python manage.py makemigrations
+|>> python manage.py migrate
+
+Now how to we chack that this field is actually created or not, so there is two ways. First is you go on DB Browser and select your sqlite database's file, and then check on 'news_news' table, there is showing your this field also. And second is you just go on Admin side and check news table, but you see there is no 'slug' field showing, so the reason of that because there is we never write data on it, this slug is automatically generated according to a 'news_title' field. 
+But one more thing is important, that because we created this slug field right now, so go on news table on your admin side and resave your all data again, and not must to do change. And before this for our previous data showing null, but now there is showing your slugs.
+So overall means is there slug field is automatically generated internally. 
+
+So now you just go on your index.html file and only do a change on calling url's places, here now we pass 'slug' on the places of 'id', 
+index.html
+..................
+    ..................
+        <marquee onmouseover="stop()" onmouseout="start()">
+          {% for news in newsData %}
+            <a href="/newsdetails/{{news.slug}}">
+              {{news.news_title}}  
+            </a>  &nbsp &nbsp &nbsp
+          {% endfor %}
+        </marquee> 
+    ..................
+..................      
+
+And there is must one more change on my same name urls.py views.py file's, because there is we mention that we passing 'id', so now we written 'slugs' there, 
+urls.py(myProject)
+..................
+urlpatterns = [
+    ..................
+    path('newsdetails/<newsslug>',views.newsdetails, name="newsdetails"), 
+    ..................
+]
+
+views.py(myProject)
+def newsdetails(request,newsslug):
+    newsDetails=News.objects.get(slug=newsslug);
+    data={
+        'newsdetails' : newsDetails,
+    }
+    return render(request,'newsdetails.html',data); 
+
+And now you see there is url is called according to a slugs bases. So in this ways we makes slugs. 
+
+
+
+===================================================================================================
+
+
+46 - How To Add Pagination In Django Project? |
+
+In this lecture we see that how we are apply Pagination(PG Need or Pagenet) option. Actually Pagination means like you have many records maybe 20, 50, 100 or else, but you dont want to show all records directly, at a time you want to show only two or three records, and then there we gives a option like 'show more', 'next' or 'previous', and then we manage all records, and this concept is called like Pagination. And in pagination here is a logic of 'next-previous' and '1' '2' '3' or so on. So there we see all the logics briefly. 
+
+So for apply pagination here is must to we import django's one library there, remember that there is we not installing any package, we just importing package only.
+And here we are working on new html file, url and function, and consider name as PAGINATOR.html, but we copying the GetAllTableData.html file code. And do some changes. And we also do change on my HEADER.html file because we adding this Pagination link on 'Products' section's below. 
+Now we continue our main things, that is, there 4 records showings, but we want that only initial 2 records show there, and the show option next, and in this way things are happens. So there in the same name app's views.py function we do some changes,
+.....................
+from django.core.paginator import Paginator
+.....................
+def pagination(request):
+    gettingData=trialData.objects.all();
+    paginator=Paginator(gettingData,2)
+    pageNo=request.GET.get('page');
+    gettingDataFinal=paginator.get_page(pageNo)
+    data={
+        'gettingData':gettingDataFinal,
+    }
+    return render(request,'PAGINATION.html',data);
+
+Actually here first we call imported Paginator() function, and there is pass two things, first is whole data, and second is which data we want to show, so there is 2 limit. And then we wants to get page number, because according to this we displaying data, and yes by default it considered page number 1. And then we pass this data by dictionary.
+
+So till now there is only two data's it get, and its all depend on our pageno., and this is the task of function's side. Now task is what is we do on template, so there we implementing the paginations code by google. Here i'm making same name's two files with 'paginatorbootstrap' name, first is a html and second is a css file. And then we add many bootstrap's links on our HEADER.html file, because there is we implementing Paginator concepts. And we also implement this code on PAGINATION.html file's after datasets. So there is done the code to implement paginator. 
+Now the task is to how we implementing the idea? so that there is things are working perfectly, and these 1, 2, 3 and so on buttons working correctly? So actually we are moving on our above views.py file's function, here we take gettingDataFinal variable, actually this variable have many more keys and values pairs under this, and these are related to paginations. Like previous, next, total and many more page number is there on keys and values format. 
+
+So here we do code changes one-by-one there, you just go on PAGINATION.html file and see all those changes.
+Actually now my data set is only 4, so i want to incress this, so i'm again pushing same data, by little change on title. So now our pages are 4. Actually here we implementing if-else, because we want if we already in first or last page then First and Previous or Next page not show. 
+
+But I'm confessing that there is many things which i want to handle, like which css i'm applying in my project for pagination, that css managing by classes active and deactive sections, so there is such things who not in my ways.
+So there is we see that how we provide links to First, Previous, 1, 2, 3, 4 and Next page. 
+In the next lecture se see that how to we target pagination's last page.
+
+
+
+===================================================================================================
+
+
+47 - Last Page Pagination & Number Counter Logic in Django
+
+So to go last page, first we go on views.py file's function, and there first we find our last page, and passing this as 'key-value' pair...
+And we also apply this on our 1, 2, 3, 4 page's. Means we are able to set these, because currntly we are adding all these numbers by our selfs, but we want to add logics, here is we find that how many pages are there and using for loops and according to this, which number of pages there only that numbers showing there. So here we alredy know that how many pages, so we use list comprihence and generate a list there, and passing on html page, so that we are using for loop in out side. And with this logics we iterate only set of times. So overall fuction is,
+views.py
+def pagination(request):
+    gettingData=trialData.objects.all();
+    paginator=Paginator(gettingData,2)
+    pageNo=request.GET.get('page');
+    gettingDataFinal=paginator.get_page(pageNo)
+    lastpageNo=gettingDataFinal.paginator.num_pages
+    data={
+        'gettingData':gettingDataFinal,
+        'lastpageNo':lastpageNo,
+        'mylist':[ i+1 for i in range(lastpageNo)],
+    }
+    return render(request,'PAGINATION.html',data);
+
+PAGINATION.html 
+...............................
+  ...............................
+    <div class="container">
+        ...............................
+          {% if gettingData.has_previous %}
+            ...............................
+              <a class="page-link" href="/pagination/?page=1">First</a>
+            ...............................
+              <a class="page-link" href="/pagination/?page={{gettingData.previous_page_number}}">
+            ...............................
+          {% endif %}
+    
+          {% for i in mylist %}
+            <li class="page-item">
+              <a class="page-link" href="/pagination/?page={{i}}">{{i}} </a>
+            </li>
+          {% endfor %}
+    
+          <!-- actually we use this if statement, so that this showing only then, when we are not in the last page -->
+          {% if gettingData.has_next %}
+              ...............................
+              <a class="page-link" href="/pagination/?page={{gettingData.next_page_number}}" aria-label="Next">
+              ...............................
+              <a class="page-link" href="/pagination/?page={{lastpageNo}}">Last</a>
+              ...............................
+          {% endif %}
+        ...............................
+    </div>
+  ...............................
+...............................
+
+So now overall our Pagination is working perfectly, here our all First, Previous, 1, 2, 3, 4, Next and Last page working perfectly. And also there is all 1, 2, 3 and 4 shows according to your data sets, so there is actually 4 sets coming from 2's combinations. Thatsit!
+
+
+
+
+[ Commit 2.0 ]
+But here is one things we must to implement, and that is active page show, and this is must because otherwise its not showing perfectly.
+And finally we know that what is the key name, whos shows current page... You see in a code, what is exectly the code is. 
+
+
+
+
+[ Commit 2.0 original ]
+You don't considered above commit there is nothing main things. 
+Actually we are so struggling there because we don't know about the key name, who tells that what is the current page number, and that why we are having a lot of time, but now all okay because now i know that 'gettingData.number' have the current page value. And to finding this we have many more others values also, so we discussed it belows, but first we show mainly html code. There is nothing must we adding, we only applying active section using if-else statements. And we not changing on our views.py file. So now you see this code. 
+
+PAGINATION.html 
+...............................
+  ...............................
+    {% for i in mylist %}
+      {% if i is gettingData.number %}
+        <li class="page-item active">
+            <a class="page-link" href="/pagination/?page={{i}}">{{i}} </a>
+        </li>
+      {% else %} 
+        <li class="page-item">
+            <a class="page-link" href="/pagination/?page={{i}}">{{i}} </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  ...............................
+...............................
+
+Some Important things related to Paginations:
+[1,2,3,4,5,6,7,8]
+ <a href="?page=1"> First </a>
+<a href="?page={{ page_obj.previous_page_number }}"> Previous </a>
+<a href="?page={{ page_obj.number }}"> Current </a>
+<a href="?page={{ page_obj.next_page_number }}"> Next </a>
+<a href="?page={{ page_obj.paginator.num_pages }}"> Last </a>
+
+
+
+
+
+[ Commit 3.0 ]
+Actually till now we implementing the pagination whole logics, and also which page's we available there is showing active status. So there is all things perfectly works. 
+But one things we also see there, if we are on 1 page, then First and Previous not showing, similerly if we are on the past page then there is Next and Last page not showing. So here the idea is we want these, but in disabled format, means if we are on 1 page, then First and Previous showing but is disabled format, similerly for last page, there is Next and Last page also showing but in disabled format. 
+So idea is simple, we also implement else statement for those, and there are applying as disabled class in else part, so it automatically considering. So now we not able to click on these, if we are on first or last page. Now we see the code's architecture overview only, 
+
+PAGINATION.html 
+...............................
+  ...............................
+    <!--Pagination 2-->
+    <div class="container">
+        ...............................
+            {% if gettingData.has_previous %}
+                <li class="page-item"> ......................... </li>
+                <li class="page-item"> ......................... </li>
+            {% else %}
+                <li class="page-item disabled"> ......................... </li>
+                <li class="page-item disabled"> ......................... </li>
+            {% endif %}
+
+            {% for i in mylist %}
+                {% if i is gettingData.number %}
+                    <li class="page-item active">
+                        <a class="page-link" href="/pagination/?page={{i}}">{{i}} </a>
+                    </li>
+                {% else %} 
+                    <li class="page-item">
+                        <a class="page-link" href="/pagination/?page={{i}}">{{i}} </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <!-- actually we use this if statement, so that this showing only then, when we are not in the last page -->
+            {% if gettingData.has_next %}
+                <li class="page-item"> ......................... </li>
+                <li class="page-item"> ......................... </li>
+            {% else %}
+                <li class="page-item disabled"> ......................... </li>
+                <li class="page-item disabled"> ......................... </li>
+            {% endif %}
+        ...............................
+    </div>
+  ...............................
+...............................
+
+So now things are working perfectly. And yes i'm again mention that i'm implementiong this logic on 'pagination'. So now all the things we want i'm implementing perfectly, now no more commits we do related to this lecture. So okay google, thatsit!
+
+
+
+===================================================================================================
+
+
+48 - Django: Save Form Data to Database | Django Model Form 
+
+Till now what we see, we adding data by Admin side and show on html file. But now we wants to add data by html side and for this data we save on our data base, so that we see this data on Admin side, means we just want to reverse the things. 
+So overall the means here we see, how to we getting a data from frontend or websites or html side, and then submit or save this data on model. So its whole process we see there, actually here is we working on insert query bases. 
+
+So first we make one html file for enquiry form 'TestingForm.html', then we make a url and function with name 'saveenquiry', to handled this file's related get & post operation, and then we want to add this on HEADER.html file's product section. 
+And the second task is to we make a module again, and its name is 'contactenquiry'. After this you go on project's same name app's settings.py file, and under this we mention this new app name, so that this app is also connected with this project.
+Now we go on modules.py and make a class, then go on admin.py section and do entry there, and then we are going on terminal, so that we do we apply two comands, first is makemigrations and then migrate, and then our this module shows on the Admin side.
+And after some more testing related works, our website is working perfectly, you just checkout all code:
+
+
+admin.py(contactenquiry)
+from django.contrib import admin
+from contactenquiry.models import saveEnquiry
+class saveEnquiryAdmin(admin.ModelAdmin):
+    list_display=('my_name', 'my_email', 'my_mno', 'my_websitename', 'my_message');
+admin.site.register(saveEnquiry,saveEnquiryAdmin);
+
+
+models.py(contactenquiry)
+from django.db import models
+from autoslug import AutoSlugField
+class saveEnquiry(models.Model):
+    my_name = models.CharField(max_length=50);
+    my_email = models.CharField(max_length=50);
+    my_mno = models.CharField(max_length=15);
+    my_websitename = models.CharField(max_length=50);
+    my_message = models.CharField(max_length=250);
+    # we also make internal slug's on the bases of my_name, may be in future we needed these! 
+    slug = AutoSlugField(populate_from='my_name', unique=True, null=True, default=None);
+
+
+views.py (myAdmin) 
+....................
+from contactenquiry.models import saveEnquiry
+....................
+def saveenquiry(request):
+    data={}
+    if request.method=="POST":
+        my_name=request.POST["myname"]
+        my_email=request.POST["myemail"]
+        my_mno=request.POST["mymno"]
+        my_websitename=request.POST["mywebsitename"]
+        my_message=request.POST["mymessage"]
+        values=saveEnquiry(my_name=my_name, my_email=my_email, my_mno=my_mno, my_websitename=my_websitename, my_message=my_message);
+        values.save()
+        data={
+            'myname' : my_name,
+            'myemail' : my_email,
+            'mymno' : my_mno,
+            'mywebsitename' : my_websitename,
+            'mymessage' : my_message,
+            'message' : "<center><b style='color: red;'>Your Data Is Inserted Successfully!</b></center>"
+        }
+    return render(request,'TestingForm.html',data);
+
+
+
+
+===================================================================================================
+
+
+49 - File Upload with FileField in Django Model
+
+Here we see that how to we apply file uploding option from Admin side, now not from front-end. Suppose we want that in any models, we also want to show one image option, so that we inserting image too. 
+Here we apply two things, First is media url in settings.py file and Second is we give to a permission to urls so that you medias folders working on urls. So these two things must whenever we apply file uplodation logic. And when we work on file so we use FileField() logic. And whatever the logic we applying there, we see in prectical, so see one-by-one steps, 
+
+Whenever we working with media's, so its must that under the project there is exist 'media' name's folder, because on this we uploading all files. 
+Then second stp is we go on settings.py file and must to write two line there, if we want to work with media,
+settings.py
+...................
+# Must to add if we want to work with MEDIA's related things
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
+
+And third thing is you open urls.py, and under this import two libraries. Actually we imporing 'settings' because which media roots and urls we define, these are on settings, and 'static' provide us to permission that we use media with there's 'urlpatterns', which list in in this file, so whereever you want to use and implement these, so on this url you import libraries on there. 
+And in the last of this urls,py file we checking our debuging mode, if it is true then we adding some more things with concatinate this 'urlpatterns', actually here we adding root and media url under static, so overall the code is,
+urls.py
+.................
+# these importing is must if we working with media related thing
+from django.conf import settings 
+from django.conf.urls.static import static 
+urlpatterns = [
+    .................
+]
+# this is also must if we working with media related things
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+So means is, here we pass with urlpattern is, using static function we connect MEDIA_URL and MEDIA_ROOT.
+Now we go on our 'contactenquiry' module's modules.py file and adding one more field there, and this is my_image,
+models.py(contactenquiry)
+class saveEnquiry(models.Model):
+    ................
+    # we adding this field because we want to add image's too.
+    my_image = models.FileField(upload_to="news/",max_length=250,null=True,default=None);
+
+Actually here 'max_length' means your url's length will be 250 characters, 'null=True' means its going as True, and also set 'default' as None, and here 'upload_to' means under 'media' folder our 'news' folder created, and under this location our all files are save's.
+Now the last work it on terminal is, we do apply makemigrations so that field is created and the migrate so that our table is created. 
+
+And then you go on you admin pannel and see there, if you do all process step by step, then definatly there is showing your image options. 
+Now in a mind question is pop-up that how to we do that in front-end side, so ruko zraa, sabar kroo! hehhhe... We will discussed it later in the next lecture, now we will see this.
+So now you open any one data and set image by your location, and then save data. Now if you want to check our image is really saved or not, so you go on the location on your project first then open media's and then news's folder and there is showing your file, so it means your image is really saved, and you this process is working perfectly. If you want to after saving you image details shoing in the front, so you go on contactenquiry's admin.py file and on there function you add a field name, then this field is also showing in the front of table.
+admin.py(contactenquiry)
+.........................
+class saveEnquiryAdmin(admin.ModelAdmin):
+    list_display........................., 'my_image');
+admin.site.register(saveEnquiry,saveEnquiryAdmin);
+
+And one thing is also mistaken there, because which series i'm following, there is working on news app so there is under media folder name is news so bhawnaoon me bahkrr, i'm also give the name as 'news', this is not a big problem and it also not effecting anywhere, its just a name change probem, actually we want to providing a name 'userimage'. Now there is all works done perfectly.
+So till now we see image adding option, how to we showing image, we will discuss it later. So okkay google thatsit the lecture! 
+
+
+
+===================================================================================================
+
+
+50 - Displaying Uploaded Images in the Template - Django 
+
+Now we see that which file we uploading, how to we display this file on website. So we use 'img' tag to display image, but what is the exectly process to display images. So here we see in prectically everything. So follow steps one-by-one...
+
+So to display our data sets we want to create one file 'ShowUserInformations.html' uniqually using for loop and with many conditions and stylings, so that there is height and width all are managing. And we also make url and function with same name for this html page access. And we also adding this on HEADER.html file's product section, so that we accessing this link directly. And then we do some code on our views.py function too, and according to this we managing our 'ShowUserInformations.html' file too. So see overview codes, to see full codes go on files, 
+
+views.py
+......................
+def showuserinformations(request):
+    gettingData=saveEnquiry.objects.all();
+    data={
+        'gettingData':gettingData,
+    }
+    return render(request,'ShowUserInformations.html',data);
+
+
+ShowUserInformations.html
+......................
+    </main>
+      </article>
+        <!-- Section 1 -->
+        <section class="section background-white">
+         ......................
+        {% for data in gettingData %}
+          <div class="line">
+            <div class="margin2x">
+              <div class="m-12 l-6 margin-m-bottom-30" style="height: 250px; width: 250px;"> 
+                <!-- here we check because some times maybe we not add image, so on this situation there is NULL stored-->
+                {% if data.my_image != NULL %}
+                <img src="/media/{{data.my_image}}" alt="" class="img-fluid">
+                {% endif %}
+              </div>          
+              <div class="m-12 l-6">
+                <h4> <b>
+                <br> Name : {{data.my_name}}
+                <br> Email : {{data.my_email}}
+                <br> Mobile Number : {{data.my_mno}}
+                <br> Website Name : {{data.my_websitename}}
+                <br> Message : {{data.my_message}}
+                </b> </h4>
+            </div>    
+          </div>  
+          <br>
+         {% endfor %}      
+        </section>      
+      </article>
+    </main>
+......................
+
+Here we applying for loop so that every data is coming and showing there, and using if statement because sometimes maybe we not add image, so on this situation there is NULL stored automatically, so if we check for [for data.my_image] and [for data.my_image != ""] directly, so this is also wrong, and thats why we checking by [for data.my_image != True], and this works perfectly. So there is showing all user's data perfectly.
+
+
+
+===================================================================================================
+
+
+51 - Setup Sending Email in Django Project
+
+Here we see rhat how to we send Email by django. 
+Suppose that we have a query form, and we fill that, then this mail is sending to admin or user, so how to we apply this process. 
+Now we not talk about add mail on form, here we talk about what steps must needed for setup, what code we do implement, so whole things we discussed there, 
+Only remember the thing that if we want to sent mail from our local system, so there is must to configer SMTP (Simple Mail Transfer Protocal). Actually SMTP is a protocal, we configer anyone gmail or hosting's SMTP, means we using gmail so sent a mail, actually here gmail is a part of middlewere who sent mails. So there is must to we gives gmail's access to django, means must to provide username and password, then it able to sent mails, means is simple SMTP is a as main resourse to sent mails. 
+But when we uploading our website on server, so there we make SMTP of main hosting, otherwise if there is you not make SMTP then no problem there, but if you applying mail process from local server, so there is must to configer SMTP, without it mail is not gone. 
+
+So now the case is how to SMTP configer? what parameters we will passing? 
+Let i'm clearing a structure, Actually for SMTP we working on settings.py and where want to sent mail there is also we working, and we also importing some libraries, and we also considering django's documentations, so lets see these steps one-by-one, 
+
+So first step is how to we configuer SMTP? So first if you have any id then we considered this, otherewise we create a new gmail, because there is must to one gmail id and password to give there, because this id plays a role as mediator or resourse, using this id all mails are sending here to there. Because now we not uploading website on server, so in local system we using gmail's SMTP.
+So first step is, which email you using as mediator, so open it as gmail, and go on apps section (9'dots), and then open accounts, and search "Less secure app access" and after open this you gives permission allow there, its a must step, because otherwise we not able to use this gmail id as SMTP's mediator. 
+Second step is to we do many configration there, you also visit on django's personal documentation, there is shows all thing, so visite on the link,
+https://docs.djangoproject.com/en/4.0/topics/email/
+
+SMTP backend
+host: EMAIL_HOST
+port: EMAIL_PORT
+username: EMAIL_HOST_USER
+password: EMAIL_HOST_PASSWORD
+use_tls: EMAIL_USE_TLS
+use_ssl: EMAIL_USE_SSL
+timeout: EMAIL_TIMEOUT
+ssl_keyfile: EMAIL_SSL_KEYFILE
+ssl_certfile: EMAIL_SSL_CERTFILE
+
+But not must to implement all's, but initial 5 is must configs parameters. So how to we gives? we see there. So go on settings.py file and there first we passing host, means which SMTP you used, so there is we use gmail's SMTP, and gmail's SMTP is 'smtp.gmail.com'. Here we written gmail's SMTP, but if you do on server then there is chances that it will change, but for locally gmail's SMTP is 'smtp.gmail.com'. 
+Second is a port, so whenever you applying process of SMTP and even of gmail's SMTP, so we give 587 port number from local, It will changing actually whenever we working live. By the way there is two ports for gmail, first is 587 and second is 465. Mostly we use port 465, whenever we working live with https protocall using gmail, so there we applying this. Then third is the name of your gmail account, means which id is we use as mediator. And forth is our password, and actual password. And fifth is TLS, actually its a status, on which we assign YES, because we use authentication there, so there is must as True. So see our settings.py file,
+settings.py
+.................................
+# Must to add when we appling email authentication related things
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'djangotrial07'
+EMAIL_HOST_PASSWORD = '#@djangotrial07'
+EMAIL_USE_TLS = True
+
+Here i'm providing a email and password also, by the way after my project completion i'm deleting my this email id, i'm creating this because of django's trial, and thatswhy i'm also fiving username related to django trials.
+Now next step is we want to import library there, many libraries there is, and we also seeing these one-by-one, but first we import one library there, in the next steps or lectures we will see that if we want to send all html design then how to we sent it, but in this part we will see how we sent mail?
+So now next step is we import a library on views.py function, we call a function under any any function. So first see this overview code,
+
+Sending Email Steps:
+..................
+from django.core.mail import send_mail
+def ..................(request):
+    send_mail(
+        'Subject here',
+        'Here is the message.',
+        'from@example.com',
+        ['to@example.com'],
+        fail_silently=False,
+    )
+    ..................
+..................
+
+Here first subject of mail, second is mail, third is by which email id, so we considered our new email id name, and forth is to which email id we want to sent email, so we write our actual old id names in the code. 
+So okay, there is all things are set, now we make a url and function there, and name as 'sentmail'. So on this function we call this 'send_mail' function, so that whenever we click on this link, mail is automatically sent to my new to old email id. Now there is we only for checking there is we set everythings, but in future we changing these details dynamically, according to dynamic data.
+Now we are focussing on how to we sent email, and to linking this in my website, we adding this on website's product section. So lets try this and you also see the exect function's code, by the way after sending mail, we direct redirect on our home page. So lets see the code,
+..................
+from django.core.mail import send_mail
+def sentmail(request):   
+    send_mail(
+        'Testing-Mail',
+        'This mail is sent by just only the testing purpose.',
+        'djangotrial07@gmail.com',
+        ['shivamshukla3108@gmail.com'],
+        fail_silently=False,
+    )
+    return render(request,'index.html');
+
+Wowwww!
+And yes this is actually working, this is a definitely a new thing which we learn. So okay with follwing these steps we applying this logic. 
+But always remember because we are working locally, so django senting mail thrue accessing from gmail, and thats why sometimes it takes few time, but its not a big deal, because whenever we are going to live, this problem is automatically remove. Main thins is we sent mail perfectly. 
+So okay google, thatsit the lecture! 
+
+
+
+===================================================================================================
+
+
+52 - Email HTML Content: Email Multi Alternatives Function 
+
+Here in this lecture we will see that how to we use 'EmailMultiAlternatives' function? Actually its role is if you want to sent html tags on email then we use this function. If we want to sent plain text then we use last lectures 'send_mail' function, but if you want to sent any html related files's whole code then we sents this using 'EmailMultiAlternatives' function. Here we pass same 4 data here too, but we also pass that which type of data we pass, so we mention HTML type there.
+So first we import 'EmailMultiAlternatives' function in views.py from same as last's 'django.core.mail'. And you always remember that we configer SMTP on both cases, not metter you working with 'send_mail' or 'EmailMultiAlternatives' function, means settings.py configerations is must in both cases. So first see this overview code,
+
+Sending alternative content types:
+from django.core.mail import EmailMultiAlternatives
+..................
+subject, from_email, to = 'hello', 'from@example.com', 'to@example.com'
+text_content = 'This is an important message.'
+html_content = '<p>This is an <strong>important</strong> message.</p>'
+msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+msg.attach_alternative(html_content, "text/html")
+msg.send()
+..................
+
+Now we again make a url and function there, and name as 'emailmultialternatives'. So on this function we call this 'EmailMultiAlternatives' function, so that whenever we click on this link, mail is automatically sent to my new to old email id. Now there is we only for checking there is we set everythings, but in future we changing these details dynamically, according to dynamic data, and there is we sent html tags related data.
+Now we are focussing on how to we sent email, and to linking this in my website, we adding this on website's product section. So lets try this and you also see the exect function's code, by the way after sending mail, we direct redirect on our home page. So lets see the code,
+
+views.py
+.....................
+def emailmultialternatives(request):   
+    subject = "Testing-Mail-2.0-again"
+    from_email = "djangotrial07@gmail.com"
+    message = "<p>This mail is sent by just only the <b>testing purpose.</b></p>"
+    to = "shivamshukla3108@gmail.com"
+    click = EmailMultiAlternatives(subject,message,from_email,[to])
+    click.content_subtype="html"
+    click.send()
+    return render(request,'index.html');
+
+So okay google, there is emails are really senting, by the way one things i'm saying that there is under list we adding multiple gmail accounts, so that in a bult we sent a mails. And yess in future we also sent data to user for his registration or login, because first on views.py we get data and according to user's email id we sent users submitted details to his accounts, and thats how we also sent OTP to user's accounts.
+There is many things to we trying to do there, so we are applying these things in my futures project. 
+
+So okay Google, thatsit the last lecture.
+
+
+
+
+===================================================================================================
+
+
+
+
+
+
